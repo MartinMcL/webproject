@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebAssignment {
+namespace Web_Assignment {
     
     
     public partial class _Default {

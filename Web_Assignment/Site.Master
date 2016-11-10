@@ -48,7 +48,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">eSports</a>
+                    <a class="navbar-brand" runat="server" href="~/">eSports <span class="glyphicon glyphicon-hd-video"></span></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">

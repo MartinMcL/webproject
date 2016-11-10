@@ -36,3 +36,13 @@ input[type="select"] {
         padding: 0;
     }
 }
+
+.lightgrey {
+    background-color: #222222;
+}
+
+.mainContent {
+    margin-top: 12px;
+    border-radius: 7px;
+    padding-bottom: 26px;
+}
