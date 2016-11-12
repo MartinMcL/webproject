@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <div class="container row mainContent">
-<div id="myCarousel" class="carousel slide col-md-9"  data-ride="carousel">
+<div id="myCarousel" class="carousel slide col-md-9 mainContent"  data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -39,9 +39,37 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<div class="col-md-3">
-    <p>loads o'stuff. loads o'stuff. loads o'stuff. loads o'stuff. loads o'stuff.</p>
 
+<div class="col-md-3 table-responsive">    
+  <h2>Trending</h2> 
+  <table class="table table-hover">
+    <tbody>
+      <tr>
+        <td>some text. some text. some text. </td>
+      </tr>
+      <tr>
+        <td>some text. some text. some text.</td>
+      </tr>
+      <tr>
+        <td>some text. some text. some text.</td>
+      </tr>
+      <tr>
+        <td>some text. some text. some text.</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+</div>
+
+<div class="container row mainContent">
+    <div class="col-md-6">
+        <h2>Upcoming events</h2>
+
+    </div>
+
+    <div class="col-md-6">
+        <h2>Latest results</h2>
+    </div>
+
 </div>
 </asp:Content>
