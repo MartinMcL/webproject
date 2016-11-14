@@ -62,13 +62,38 @@
 </div>
 
 <div class="container row mainContent">
-    <div class="col-md-6">
+    <div class="col-md-6 table-responsive">
         <h2>Upcoming events</h2>
-
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td> some event info </td>
+                </tr>
+                <tr>
+                    <td> some event info </td>
+                </tr>
+                <tr>
+                    <td> some event info </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 table-responsive">
         <h2>Latest results</h2>
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td> some event info </td>
+                </tr>
+                <tr>
+                    <td> some event info </td>
+                </tr>
+                <tr>
+                    <td> some event info </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
 </div>
