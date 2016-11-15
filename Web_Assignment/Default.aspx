@@ -42,58 +42,58 @@
 
 <div class="col-md-3 table-responsive">    
   <h2>Trending</h2> 
-  <table class="table table-hover">
-    <tbody>
-      <tr>
-        <td>some text. some text. some text. </td>
-      </tr>
-      <tr>
-        <td>some text. some text. some text.</td>
-      </tr>
-      <tr>
-        <td>some text. some text. some text.</td>
-      </tr>
-      <tr>
-        <td>some text. some text. some text.</td>
-      </tr>
-    </tbody>
-  </table>
+    <asp:Table runat="server" ID="tblTrend" CssClass="table table-hover">
+        <asp:TableRow>
+            <asp:TableCell ID="trend1">test</asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell ID="trend2">test</asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell ID="trend3">test</asp:TableCell>
+        </asp:TableRow> 
+        <asp:TableRow>
+            <asp:TableCell ID="trend4">test</asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
 </div>
 </div>
 
 <div class="container row mainContent">
     <div class="col-md-6 table-responsive">
         <h2>Upcoming events</h2>
-        <table class="table table-hover">
-            <tbody>
-                <tr>
-                    <td> some event info </td>
-                </tr>
-                <tr>
-                    <td> some event info </td>
-                </tr>
-                <tr>
-                    <td> some event info </td>
-                </tr>
-            </tbody>
-        </table>
+       <asp:Table runat="server" ID="tblUpcoming" CssClass="table table-hover">
+        <asp:TableRow>
+            <asp:TableCell ID="upcoming1">test</asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell ID="upcoming2">test</asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell ID="upcoming3">test</asp:TableCell>
+        </asp:TableRow> 
+        <asp:TableRow>
+            <asp:TableCell ID="upcoming4">test</asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
     </div>
 
     <div class="col-md-6 table-responsive">
-        <h2>Latest results</h2>
-        <table class="table table-hover">
-            <tbody>
-                <tr>
-                    <td > some event info </td>
-                </tr>
-                <tr>
-                    <td> some event info </td>
-                </tr>
-                <tr>
-                    <td> some event info </td>
-                </tr>
-            </tbody>
-        </table>
+        <h2>Latest tournaments</h2>
+        <asp:Table runat="server" ID="tblTourns" CssClass="table table-hover">
+        <asp:TableRow>
+            <asp:TableCell ID="latest1">test</asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell ID="latest2">test</asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell ID="latest3">test</asp:TableCell>
+        </asp:TableRow> 
+        <asp:TableRow>
+            <asp:TableCell ID="latest4">test</asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
     </div>
 
 </div>

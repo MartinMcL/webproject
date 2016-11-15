@@ -52,7 +52,7 @@ td:hover {
 }
 #myCarousel {
     padding-top: 10px;
-    border: darkgray solid 0.2px;
+    border: rgba(0, 0, 0, 0.46) solid 0.2px;
 
 }
 
