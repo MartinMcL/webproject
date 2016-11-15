@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <div class="container row mainContent">
-<div id="myCarousel" class="carousel slide col-md-9 mainContent"  data-ride="carousel">
+<div id="myCarousel" class="carousel slide col-md-9 mainContent" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

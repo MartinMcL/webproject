@@ -50,3 +50,9 @@ input[type="select"] {
 td:hover {
     color: black;
 }
+#myCarousel {
+    padding-top: 10px;
+    border: darkgray solid 0.2px;
+
+}
+
