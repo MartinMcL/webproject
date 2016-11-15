@@ -47,3 +47,6 @@ input[type="select"] {
     padding-bottom: 26px;
     background-color:#333333;
 }
+td:hover {
+    color: black;
+}

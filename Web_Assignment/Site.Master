@@ -86,7 +86,7 @@
                    <a href="https://www.youtube.com"><img class="col-md-1 col-md-offset-1 img-responsive" src="../Images/youtube.png" alt="Our Facebook Pages" /></a>
                    <a href="https://www.instagram.com"><img class="col-md-1 col-md-offset-1 img-responsive" src="../Images/instagram.png" alt="Our Facebook Pages" /></a>
                </div>
-                <p class="text-center">&copy; <%: DateTime.Now.Year %> - eSportsHD News</p>
+                <p>&copy; <%: DateTime.Now.Year %> - eSportsHD News</p>
             </footer>
         </div>
     </form>
