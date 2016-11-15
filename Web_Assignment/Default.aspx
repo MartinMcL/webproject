@@ -84,7 +84,7 @@
         <table class="table table-hover">
             <tbody>
                 <tr>
-                    <td> some event info </td>
+                    <td > some event info </td>
                 </tr>
                 <tr>
                     <td> some event info </td>
