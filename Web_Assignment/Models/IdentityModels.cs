@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Web_Assignment.Models;
+using System.Data.Entity;
 
 namespace Web_Assignment.Models
 {
@@ -29,6 +30,11 @@ namespace Web_Assignment.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Sport> Sports { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Article> Articles { get; set; }
+
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
