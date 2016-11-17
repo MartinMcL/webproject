@@ -368,6 +368,10 @@
     <Compile Include="Migrations\201611162332567_initial setup.Designer.cs">
       <DependentUpon>201611162332567_initial setup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611170042088_AddedColToSportTable.cs" />
+    <Compile Include="Migrations\201611170042088_AddedColToSportTable.Designer.cs">
+      <DependentUpon>201611170042088_AddedColToSportTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -410,6 +414,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611162332567_initial setup.resx">
       <DependentUpon>201611162332567_initial setup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611170042088_AddedColToSportTable.resx">
+      <DependentUpon>201611170042088_AddedColToSportTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
