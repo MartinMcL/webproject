@@ -18,6 +18,7 @@ namespace Web_Assignment
             GetTrending();
             GetUpcoming();
             GetLatest();
+            GetDisciplines();
         }
 
         public void GetUpcoming()
@@ -68,6 +69,29 @@ namespace Web_Assignment
         {
             var myRequest =
             WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?featured=1");
+            myRequest.Method = "GET";
+            myRequest.UserAgent = "WebRequestDemo";
+            myRequest.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
+            using (var theResponse = myRequest.GetResponse())
+            {
+                var dataStream = theResponse.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                object objResponse = reader.ReadToEnd();
+                var trendEvent = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
+                trend1.Text = trendEvent[0].name;
+                trend2.Text = trendEvent[1].name;
+                trend3.Text = trendEvent[2].name;
+                trend4.Text = trendEvent[3].name;
+                dataStream.Close();
+                theResponse.Close();
+            }
+
+        }
+
+        public void GetDisciplines()
+        {
+            var myRequest =
+            WebRequest.CreateHttp("https://api.toornament.com/v1/disciplines");
             myRequest.Method = "GET";
             myRequest.UserAgent = "WebRequestDemo";
             myRequest.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
