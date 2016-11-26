@@ -16,6 +16,8 @@ namespace Web_Assignment.Models
         public int ID { get; set; }
         public string APISportID { get; set; }
         public string sportName { get; set; }
+        public ICollection<User> Users { get; set; }
+        public ICollection<Article> articles { get; set; }
 
     }
 }

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Web_Assignment.Models
 {
-    [Table("Atricle")]
+    [Table("Article")]
     public class Article
     {
         [Key]
@@ -21,10 +21,9 @@ namespace Web_Assignment.Models
 
         public DateTime datePublish { get; set; }
 
-        [ForeignKey("sport")]
-        public int Sport { get; set; }
-        public virtual Sport sport { get; set; }
+        public int SportID { get; set; }
+        [ForeignKey("SportID")]
+        public Sport sport { get; set; }
 
-        public ICollection<Sport> sports { get; set; }
     }
 }

@@ -18,9 +18,9 @@ namespace Web_Assignment.Models
 
         public string password { get; set; }
 
-        [ForeignKey("sport")]
-        public int Sport { get; set; }
-        public virtual Sport sport { get; set; }
-        public ICollection<Sport> sports { get; set; }
+        public int SportID { get; set; }
+
+        [ForeignKey("SportID")]
+        public Sport sport { get; set; }
     }
 }

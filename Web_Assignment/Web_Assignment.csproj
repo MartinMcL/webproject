@@ -372,6 +372,10 @@
     <Compile Include="Migrations\201611170042088_AddedColToSportTable.Designer.cs">
       <DependentUpon>201611170042088_AddedColToSportTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611211720265_FixedRelationships.cs" />
+    <Compile Include="Migrations\201611211720265_FixedRelationships.Designer.cs">
+      <DependentUpon>201611211720265_FixedRelationships.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -417,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611170042088_AddedColToSportTable.resx">
       <DependentUpon>201611170042088_AddedColToSportTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611211720265_FixedRelationships.resx">
+      <DependentUpon>201611211720265_FixedRelationships.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
