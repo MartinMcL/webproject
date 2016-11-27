@@ -44,6 +44,15 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <asp:Label CssClass="col-md-3 col-md-offset-2 control-label" runat="server">Pick your favourite game</asp:Label>
+                    <div class="col-md-7">
+                        <asp:DropDownList runat="server" ID="ddlSportName" CssClass="form-control">                         
+                        </asp:DropDownList>
+
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-md-offset-5 col-md-2">
                         <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-success" />
                     </div>
