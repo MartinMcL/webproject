@@ -30,6 +30,7 @@ namespace Web_Assignment.Account
         }
         protected void CreateUser_Click(object sender, EventArgs e)
         {
+            //Adding 1 if there is a sport selected
             int favSport = ddlSportName.SelectedIndex > -1 ? ddlSportName.SelectedIndex + 1 : ddlSportName.SelectedIndex;
 
             User newUser = new User() { email=Email.Text, SportID = favSport };
