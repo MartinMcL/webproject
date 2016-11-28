@@ -16,8 +16,6 @@ namespace Web_Assignment.Models
 
         public string email { get; set; }
 
-        public string password { get; set; }
-
         public int SportID { get; set; }
 
         [ForeignKey("SportID")]

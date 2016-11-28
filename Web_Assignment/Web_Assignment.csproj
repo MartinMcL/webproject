@@ -382,6 +382,10 @@
     <Compile Include="Migrations\201611211720265_FixedRelationships.Designer.cs">
       <DependentUpon>201611211720265_FixedRelationships.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611281659537_NewUserNoPass.cs" />
+    <Compile Include="Migrations\201611281659537_NewUserNoPass.Designer.cs">
+      <DependentUpon>201611281659537_NewUserNoPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -430,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611211720265_FixedRelationships.resx">
       <DependentUpon>201611211720265_FixedRelationships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611281659537_NewUserNoPass.resx">
+      <DependentUpon>201611281659537_NewUserNoPass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

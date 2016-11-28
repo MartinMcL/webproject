@@ -32,7 +32,7 @@ namespace Web_Assignment.Account
         {
             var favSport = ddlSportName.SelectedIndex + 1;
 
-            var newUser = new User() { email=Email.Text, password = Password.Text, SportID = favSport };
+            var newUser = new User() { email=Email.Text, SportID = favSport };
 
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
