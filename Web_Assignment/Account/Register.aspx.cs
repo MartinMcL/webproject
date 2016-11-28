@@ -23,18 +23,19 @@ namespace Web_Assignment.Account
 
             var q1 = (from sp in db.Sports
                       orderby sp.ID
-                      select sp.sportName).ToList();
-
+                      select sp).ToList();
             ddlSportName.DataSource = q1;
+            ddlSportName.DataValueField = "ID";
+            ddlSportName.DataTextField = "sportName"; 
             ddlSportName.DataBind();
         }
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             //Adding 1 if there is a sport selected
-            int favSport = ddlSportName.SelectedIndex > -1 ? ddlSportName.SelectedIndex + 1 : ddlSportName.SelectedIndex;
+            int favSport = Convert.ToInt32(ddlSportName.SelectedItem.Value);
 
             User newUser = new User() { email=Email.Text, SportID = favSport };
-
+            
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
             var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
@@ -45,7 +46,13 @@ namespace Web_Assignment.Account
                 //string code = manager.GenerateEmailConfirmationToken(user.Id);
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+                using (ApplicationDbContext ctx = new Web_Assignment.Models.ApplicationDbContext())
+                {
+                    ctx.User.Add(newUser);
+                    ctx.SaveChanges();
+                }
 
+               
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
