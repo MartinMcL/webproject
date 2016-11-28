@@ -11,7 +11,13 @@ namespace Web_Assignment.Account
 {
     public partial class Register : Page
     {
-        protected void populateDDL(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            populateDDL();
+        }
+
+
+        protected void populateDDL()
         {
             ApplicationDbContext db = new ApplicationDbContext();
 

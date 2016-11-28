@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Web_Assignment.Account.Register" %>
+﻿<%@ Page Title="Register"  Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Web_Assignment.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <%--<h2><%: Title %>.</h2> --%>
@@ -44,11 +44,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <asp:Label CssClass="col-md-3 col-md-offset-2 control-label" runat="server">Pick your favourite game</asp:Label>
-                    <div class="col-md-7">
-                        <asp:DropDownList runat="server" ID="ddlSportName" AutoPostBack="true" CssClass="form-control">                         
+                    <asp:Label AssociatedControlID="ddlSportName" CssClass="col-md-3 col-md-offset-2 control-label" runat="server">Pick your favourite game</asp:Label>
+                    <div class="col-md-3">
+                        <asp:DropDownList runat="server" ID="ddlSportName" AutoPostBack="false" CssClass="form-control">                         
                         </asp:DropDownList>
-
                     </div>
                 </div>
                 <div class="form-group">
