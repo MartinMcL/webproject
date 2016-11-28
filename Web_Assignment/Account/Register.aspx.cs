@@ -11,6 +11,17 @@ namespace Web_Assignment.Account
 {
     public partial class Register : Page
     {
+        protected void populateDDL(object sender, EventArgs e)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+
+            var q1 = (from sp in db.Sports
+                      orderby sp.ID
+                      select sp.sportName).ToList();
+
+            ddlSportName.DataSource = q1;
+            ddlSportName.DataBind();
+        }
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -32,5 +43,7 @@ namespace Web_Assignment.Account
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
         }
+
+
     }
 }
