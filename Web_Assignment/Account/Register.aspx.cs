@@ -30,9 +30,9 @@ namespace Web_Assignment.Account
         }
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            var favSport = ddlSportName.SelectedIndex + 1;
+            int favSport = ddlSportName.SelectedIndex > -1 ? ddlSportName.SelectedIndex + 1 : ddlSportName.SelectedIndex;
 
-            var newUser = new User() { email=Email.Text, SportID = favSport };
+            User newUser = new User() { email=Email.Text, SportID = favSport };
 
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
