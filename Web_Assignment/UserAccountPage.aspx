@@ -36,9 +36,14 @@
         <h3>What to look out for</h3>
         <div class="col-md-4">
             <img src="#" class="img-thumbnail img-responsive" alt="event for fav sport" />      <!-- upcoming event of your preferred sport-->
-            <p> 
-                <!-- some info about that event-->
-            </p>
+            <asp:Table runat="server" ID="tblUpcoming" CssClass="table table-hover">
+        <asp:TableRow>
+            <asp:TableCell ID="upcoming1">test</asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell ID="upcoming2">test</asp:TableCell>
+        </asp:TableRow>
+                </asp:Table>
         </div>
 
         <div class="col-md-4">
