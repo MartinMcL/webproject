@@ -44,16 +44,16 @@
   <h2>Trending</h2> 
     <asp:Table runat="server" ID="tblTrend" CssClass="table table-hover">
         <asp:TableRow>
-            <asp:TableCell ID="trend1">test</asp:TableCell>
+            <asp:TableCell ID="trend1">No Information</asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-            <asp:TableCell ID="trend2">test</asp:TableCell>
+            <asp:TableCell ID="trend2">No Information</asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-            <asp:TableCell ID="trend3">test</asp:TableCell>
+            <asp:TableCell ID="trend3">No Information</asp:TableCell>
         </asp:TableRow> 
         <asp:TableRow>
-            <asp:TableCell ID="trend4">test</asp:TableCell>
+            <asp:TableCell ID="trend4">No Information</asp:TableCell>
         </asp:TableRow>
     </asp:Table>
 </div>
@@ -64,16 +64,16 @@
         <h2>Upcoming events</h2>
        <asp:Table runat="server" ID="tblUpcoming" CssClass="table table-hover">
         <asp:TableRow>
-            <asp:TableCell ID="upcoming1">test</asp:TableCell>
+            <asp:TableCell ID="upcoming1">No Information</asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-            <asp:TableCell ID="upcoming2">test</asp:TableCell>
+            <asp:TableCell ID="upcoming2">No Information</asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-            <asp:TableCell ID="upcoming3">test</asp:TableCell>
+            <asp:TableCell ID="upcoming3">No Information</asp:TableCell>
         </asp:TableRow> 
         <asp:TableRow>
-            <asp:TableCell ID="upcoming4">test</asp:TableCell>
+            <asp:TableCell ID="upcoming4">No Information</asp:TableCell>
         </asp:TableRow>
     </asp:Table>
     </div>
@@ -82,16 +82,16 @@
         <h2>Latest tournaments</h2>
         <asp:Table runat="server" ID="tblTourns" CssClass="table table-hover">
         <asp:TableRow>
-            <asp:TableCell ID="latest1">test</asp:TableCell>
+            <asp:TableCell ID="latest1">No Information</asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-            <asp:TableCell ID="latest2">test</asp:TableCell>
+            <asp:TableCell ID="latest2">No Information</asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-            <asp:TableCell ID="latest3">test</asp:TableCell>
+            <asp:TableCell ID="latest3">No Information</asp:TableCell>
         </asp:TableRow> 
         <asp:TableRow>
-            <asp:TableCell ID="latest4">test</asp:TableCell>
+            <asp:TableCell ID="latest4">No Information</asp:TableCell>
         </asp:TableRow>
     </asp:Table>
     </div>
