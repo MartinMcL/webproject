@@ -42,7 +42,8 @@ input[type="select"] {
 }
 
 .mainContent {
-    margin-top: 12px;
+    margin-top: 5px;
+    padding-top: 5px;
     border-radius: 7px;
     padding-bottom: 26px;
     background-color:#333333;

@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container row">
         <div class="col-md-3 mainContent">
-            <div id="profilePic" class="row">
-                <img src="Images/1466145_543504655742157_770598362_n.jpg" class="img-responsive img-thumbnail" />
+            <div id="profilePic">
+                <img src="Images/avatar.png" class="img-responsive img-thumbnail" />
             </div>
             <h3 id="userName"></h3>
             <div>
@@ -16,7 +16,7 @@
 
         <div class="col-md-9 ">
             <div class="mainContent">
-                <h3>Latest results</h3>
+                <h3 class="col-md-offset-1 text-primary">Latest results</h3>
                 <h4>
                     <!-- your fav sport name here-->
                 </h4>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="mainContent">
-                <h3>Upcoming matches</h3>
+                <h3 class="col-md-offset-1 text-primary">Upcoming matches</h3>
                 <h4>
                     <!-- your fav sport name here-->
                 </h4>

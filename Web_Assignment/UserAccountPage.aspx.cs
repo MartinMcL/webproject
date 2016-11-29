@@ -18,11 +18,19 @@ namespace Web_Assignment
         {
             yourUpComing();
             yourNearby();
+            randomEvent();
         }
 
         public string SportName(Sport fs)
         {
-            return fs.sportName;
+            if (fs != null)
+            {
+                return fs.sportName;
+            }
+            else
+            {
+                return "";
+            }
         }
 
         public Sport yourFavSport()
@@ -63,24 +71,28 @@ namespace Web_Assignment
         public void yourUpComing()
         {
             Sport favSport = yourFavSport();
-            var myRequest =
-            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "&discipline=" + favSport.APISportID);
-            myRequest.Method = "GET";
-            myRequest.UserAgent = "WebRequestDemo";
-            myRequest.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
-            using (var theResponse = myRequest.GetResponse())
+            if (favSport != null)
             {
-                var dataStream = theResponse.GetResponseStream();
-                StreamReader reader = new StreamReader(dataStream);
-                object objResponse = reader.ReadToEnd();
-                List<Event> myEvents = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
-                if (myEvents.Count > 0)
+
+                var myRequest = WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "&discipline=" + favSport.APISportID);
+                myRequest.Method = "GET";
+                myRequest.UserAgent = "WebRequestDemo";
+                myRequest.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
+                using (var theResponse = myRequest.GetResponse())
                 {
-                    upcoming1.Text = myEvents[0].name;
+                    var dataStream = theResponse.GetResponseStream();
+                    StreamReader reader = new StreamReader(dataStream);
+                    object objResponse = reader.ReadToEnd();
+                    List<Event> myEvents = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
+                    if (myEvents.Count > 0)
+                    {
+                        upcoming1.Text = myEvents[0].name;
+                    }
+                    dataStream.Close();
+                    theResponse.Close();
                 }
-                dataStream.Close();
-                theResponse.Close();
             }
+            
 
         }
         public void yourNearby()
@@ -99,13 +111,39 @@ namespace Web_Assignment
                 List<Event> myEvents = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
                 if (myEvents.Count > 0)
                 {
-                    nearby1.Text = myEvents[0].ToString();
+                    nearby1.Text = myEvents[0].name;
                 }
                 dataStream.Close();
                 theResponse.Close();
             }
 
         }
+
+        public void randomEvent()
+        {
+            Location myLocation = getLocation();
+            var myRequest =
+            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "&featured=1");
+            myRequest.Method = "GET";
+            myRequest.UserAgent = "WebRequestDemo";
+            myRequest.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
+            using (var theResponse = myRequest.GetResponse())
+            {
+                var dataStream = theResponse.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                object objResponse = reader.ReadToEnd();
+                List<Event> myEvents = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
+                if (myEvents.Count > 0)
+                {
+                    Random rng = new Random();
+                    random1.Text = myEvents[rng.Next(0, myEvents.Count)].name;
+                }
+                dataStream.Close();
+                theResponse.Close();
+            }
+
+        }
+
 
         public class Event
         {
