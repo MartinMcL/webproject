@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,38 +16,97 @@ namespace Web_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            yourUpComing();
+            yourNearby();
         }
 
-        protected void yourUpComing()
+        public string SportName(Sport fs)
+        {
+            return fs.sportName;
+        }
+
+        public Sport yourFavSport()
         {
             ApplicationDbContext db = new ApplicationDbContext();
 
-            //var currentUser = Convert.ToString (HttpContext.Current.User.Identity.Name);
+            var currentUser = Convert.ToString(Context.User.Identity.GetUserName());
 
-            var favSport = from s in db.Sports
-                           join u in db.User on s.ID equals u.SportID
-                           //where u.email = currentUser 
-                           select u.SportID;
+            Sport favSport = (from s in db.Sports
+                              join u in db.User on s.ID equals u.SportID
+                              where u.email == currentUser
+                              select s).FirstOrDefault();
 
+            return favSport;
+        }
+
+        public Location getLocation()
+        {
             var myRequest =
-            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
+            WebRequest.CreateHttp("http://ip-api.com/json/?fields=country,countryCode");
+            myRequest.Method = "GET";
+            myRequest.UserAgent = "WebRequestDemo";
+            Location myLocation = new Location();
+            using (var theResponse = myRequest.GetResponse())
+            {
+                var dataStream = theResponse.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                object objResponse = reader.ReadToEnd();
+                myLocation = JsonConvert.DeserializeObject<Location>(objResponse.ToString());
+                dataStream.Close();
+                theResponse.Close();
+            }
+            return myLocation;
+        }
+
+        public string countryName(Location loc) { return loc.country; }
+
+        public void yourUpComing()
+        {
+            Sport favSport = yourFavSport();
+            var myRequest =
+            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "&discipline=" + favSport.APISportID);
             myRequest.Method = "GET";
             myRequest.UserAgent = "WebRequestDemo";
             myRequest.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
             using (var theResponse = myRequest.GetResponse())
             {
-               var dataStream = theResponse.GetResponseStream();
-               StreamReader reader = new StreamReader(dataStream);
-               object objResponse = reader.ReadToEnd();
-               var myEvents = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
-               upcoming1.Text = myEvents[0].name;
-               upcoming2.Text = myEvents[1].name;
-               dataStream.Close();
-               theResponse.Close();
+                var dataStream = theResponse.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                object objResponse = reader.ReadToEnd();
+                List<Event> myEvents = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
+                if (myEvents.Count > 0)
+                {
+                    upcoming1.Text = myEvents[0].name;
+                }
+                dataStream.Close();
+                theResponse.Close();
             }
-            
+
         }
+        public void yourNearby()
+        {
+            Location myLocation = getLocation();
+            var myRequest =
+            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "&country=" + myLocation.countryCode);
+            myRequest.Method = "GET";
+            myRequest.UserAgent = "WebRequestDemo";
+            myRequest.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
+            using (var theResponse = myRequest.GetResponse())
+            {
+                var dataStream = theResponse.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                object objResponse = reader.ReadToEnd();
+                List<Event> myEvents = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
+                if (myEvents.Count > 0)
+                {
+                    nearby1.Text = myEvents[0].ToString();
+                }
+                dataStream.Close();
+                theResponse.Close();
+            }
+
+        }
+
         public class Event
         {
             public string id { get; set; }
@@ -63,6 +123,12 @@ namespace Web_Assignment
             public string country { get; set; }
             public int size { get; set; }
 
+        }
+        public class Location
+        {
+            public string status { get; set; }
+            public string country { get; set; }
+            public string countryCode { get; set; }
         }
     }
 }

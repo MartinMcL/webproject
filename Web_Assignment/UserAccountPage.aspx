@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UserAccountPage.aspx.cs" Inherits="Web_Assignment.UserAccountPage" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container row">
         <div class="col-md-3 mainContent">
@@ -8,7 +9,7 @@
             <h3 id="userName"></h3>
             <div>
                 <ul>
-                     <li><a runat="server" href="~/Account/Manage" title="Manage your account">Manage your account</a></li>
+                    <li><a runat="server" href="~/Account/Manage" title="Manage your account">Manage your account</a></li>
                 </ul>
             </div>
         </div>
@@ -16,15 +17,19 @@
         <div class="col-md-9 ">
             <div class="mainContent">
                 <h3>Latest results</h3>
-                <h4><!-- your fav sport name here--></h4>
+                <h4>
+                    <!-- your fav sport name here-->
+                </h4>
                 <div>
                     <!--last matches results here -->
                 </div>
             </div>
-            
+
             <div class="mainContent">
                 <h3>Upcoming matches</h3>
-                <h4><!-- your fav sport name here--></h4>
+                <h4>
+                    <!-- your fav sport name here-->
+                </h4>
                 <div>
                     <!-- matches fixtures here -->
                 </div>
@@ -35,29 +40,30 @@
     <div class="container row">
         <h3>What to look out for</h3>
         <div class="col-md-4">
-            <img src="#" class="img-thumbnail img-responsive" alt="event for fav sport" />      <!-- upcoming event of your preferred sport-->
+            <h6>Upcoming events for : <%: SportName(yourFavSport()) %></h6>
             <asp:Table runat="server" ID="tblUpcoming" CssClass="table table-hover">
-        <asp:TableRow>
-            <asp:TableCell ID="upcoming1">test</asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell ID="upcoming2">test</asp:TableCell>
-        </asp:TableRow>
-                </asp:Table>
+                <asp:TableRow>
+                    <asp:TableCell ID="upcoming1">No upcoming events</asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
         </div>
 
         <div class="col-md-4">
-            <img src="#" class="img-thumbnail img-responsive" alt="event near user" />      <!-- upcoming event near user location-->
-            <p> 
-                <!-- some info about that event-->
-            </p>
+            <h6>Upcoming events in <%: countryName(getLocation()) %></h6>
+            <asp:Table runat="server" ID="Table1" CssClass="table table-hover">
+                <asp:TableRow>
+                    <asp:TableCell ID="nearby1">No upcoming events</asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
         </div>
 
         <div class="col-md-4">
-            <img src="#" class="img-thumbnail img-responsive" alt="random upcoming event " />      <!-- upcoming random event-->
-            <p> 
-                <!-- some info about that event-->
-            </p>
+            <h6>Random upcoming event</h6>
+            <asp:Table runat="server" ID="Table2" CssClass="table table-hover">
+                <asp:TableRow>
+                    <asp:TableCell ID="random1">No upcoming events</asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
         </div>
     </div>
 </asp:Content>
