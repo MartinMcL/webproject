@@ -21,18 +21,18 @@ namespace Web_Assignment.Account
         {
             ApplicationDbContext db = new ApplicationDbContext();
 
-            var q1 = (from sp in db.Sports
+            var q = (from sp in db.Sports
                       orderby sp.ID
                       select sp).ToList();
-            ddlSportName.DataSource = q1;
-            ddlSportName.DataValueField = "ID";
-            ddlSportName.DataTextField = "sportName"; 
+            ddlSportName.DataSource = q;
+            ddlSportName.DataTextField = "sportName";
+            ddlSportName.DataValueField = "ID"; 
             ddlSportName.DataBind();
         }
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             //Adding 1 if there is a sport selected
-            int favSport = Convert.ToInt32(ddlSportName.SelectedItem.Value);
+            int favSport = Convert.ToInt32(ddlSportName.SelectedValue);
 
             User newUser = new User() { email=Email.Text, SportID = favSport };
             

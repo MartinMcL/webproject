@@ -13,48 +13,30 @@ namespace Web_Assignment {
     public partial class UserAccountPage {
         
         /// <summary>
-        /// tblTrend control.
+        /// tblUpcoming control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblTrend;
+        protected global::System.Web.UI.WebControls.Table tblUpcoming;
         
         /// <summary>
-        /// trend1 control.
+        /// upcoming1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell trend1;
+        protected global::System.Web.UI.WebControls.TableCell upcoming1;
         
         /// <summary>
-        /// trend2 control.
+        /// upcoming2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell trend2;
-        
-        /// <summary>
-        /// trend3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell trend3;
-        
-        /// <summary>
-        /// trend4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell trend4;
+        protected global::System.Web.UI.WebControls.TableCell upcoming2;
     }
 }
