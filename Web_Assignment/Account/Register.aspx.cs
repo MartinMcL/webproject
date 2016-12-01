@@ -25,14 +25,15 @@ namespace Web_Assignment.Account
                       orderby sp.ID
                       select sp).ToList();
             ddlSportName.DataSource = q;
-            ddlSportName.DataTextField = "sportName";
+            ddlSportName.DataTextField = "ID";
             ddlSportName.DataValueField = "ID"; 
+
             ddlSportName.DataBind();
         }
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             //Adding 1 if there is a sport selected
-            int favSport = Convert.ToInt32(ddlSportName.SelectedValue);
+            int favSport = Convert.ToInt32(ddlSportName.SelectedIndex + 1);
 
             User newUser = new User() { email=Email.Text, SportID = favSport };
             

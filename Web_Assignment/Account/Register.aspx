@@ -45,8 +45,10 @@
                 <div class="form-group">
                     <asp:Label AssociatedControlID="ddlSportName" CssClass="col-md-3 col-md-offset-2 control-label" runat="server">Pick your favourite game</asp:Label>
                     <div class="col-md-3">
-                        <asp:DropDownList runat="server" ID="ddlSportName" AutoPostBack="false" CssClass="form-control">                         
+                        <asp:DropDownList runat="server" ID="ddlSportName" CssClass="form-control" DataSourceID="LinqDataSource1" DataTextField="Sports" DataValueField="ID">                         
                         </asp:DropDownList>
+                        <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="Web_Assignment.Models.ApplicationDbContext" EntityTypeName="" GroupBy="ID" Select="new (key as ID, it as Sports, Min(sportName) as Min_sportName)" TableName="Sports">
+                        </asp:LinqDataSource>
                     </div>
                 </div>
                 <div class="form-group">
