@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group">
                     <asp:Label AssociatedControlID="ddlSportName" CssClass="col-md-3 col-md-offset-2 control-label" runat="server">Pick your favourite game</asp:Label>
-                    <div class="col-md-3">
+                    <div class="col-md-3">                       
                         <asp:DropDownList runat="server" ID="ddlSportName" AutoPostBack="false" CssClass="form-control">                         
                         </asp:DropDownList>
                     </div>

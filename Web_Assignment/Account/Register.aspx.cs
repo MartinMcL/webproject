@@ -21,18 +21,19 @@ namespace Web_Assignment.Account
         {
             ApplicationDbContext db = new ApplicationDbContext();
 
-            var q = (from sp in db.Sports
+            var q1 = (from sp in db.Sports
                       orderby sp.ID
-                      select sp).ToList();
-            ddlSportName.DataSource = q;
-            ddlSportName.DataTextField = "sportName";
-            ddlSportName.DataValueField = "ID"; 
+                      select new SportData(sp.ID, sp.sportName)).ToList();
+            ddlSportName.DataSource = q1;
+            ddlSportName.DataValueField = "ID";
+            ddlSportName.DataTextField = "sportName";          
             ddlSportName.DataBind();
         }
         protected void CreateUser_Click(object sender, EventArgs e)
         {
+            SportData tempSportData = (SportData)ddlSportName.SelectedItem;
             //Adding 1 if there is a sport selected
-            int favSport = Convert.ToInt32(ddlSportName.SelectedValue);
+            int favSport = Convert.ToInt32(ddlSportName.SelectedValue.ToString());
 
             User newUser = new User() { email=Email.Text, SportID = favSport };
             
@@ -63,5 +64,22 @@ namespace Web_Assignment.Account
         }
 
 
+    }
+
+    class SportData
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+
+        public SportData(int id, string sportName)
+        {
+            this.ID = id;
+            this.Name = sportName;
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
