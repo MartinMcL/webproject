@@ -13,27 +13,17 @@ namespace Web_Assignment.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            populateDDL();
         }
 
 
         protected void populateDDL()
         {
-            ApplicationDbContext db = new ApplicationDbContext();
-
-            var q = (from sp in db.Sports
-                      orderby sp.ID
-                      select sp).ToList();
-            ddlSportName.DataSource = q;
-            ddlSportName.DataTextField = "ID";
-            ddlSportName.DataValueField = "ID"; 
-
-            ddlSportName.DataBind();
         }
+
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             //Adding 1 if there is a sport selected
-            int favSport = Convert.ToInt32(ddlSportName.SelectedIndex + 1);
+            int favSport = Convert.ToInt16(ddlSportName.SelectedValue);
 
             User newUser = new User() { email=Email.Text, SportID = favSport };
             
@@ -62,7 +52,6 @@ namespace Web_Assignment.Account
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
         }
-
-
+       
     }
 }
