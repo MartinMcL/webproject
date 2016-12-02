@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Register"  Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Web_Assignment.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+
     <div class="container lightgrey mainContent">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center">

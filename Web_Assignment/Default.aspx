@@ -1,6 +1,17 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Web_Assignment._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- gets the event name, uses query string to pass name to article page -->
+    <script>
+    $(document).on("click", "td", function (e) {
+        var articleName = (e.target.innerHTML);
+
+        var params = { 'name': articleName };
+        window.location.href = "ArticlePage?" + jQuery.param(params);
+    });
+</script>
+
+
 <div class="container row mainContent">
 <div id="myCarousel" class="carousel slide col-md-9 mainContent" data-ride="carousel">
   <!-- Indicators -->

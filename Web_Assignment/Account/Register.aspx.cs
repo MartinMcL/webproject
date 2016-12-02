@@ -16,10 +16,6 @@ namespace Web_Assignment.Account
         }
 
 
-        protected void populateDDL()
-        {
-        }
-
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             //Adding 1 if there is a sport selected
