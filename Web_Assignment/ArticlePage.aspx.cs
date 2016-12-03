@@ -54,17 +54,17 @@ namespace Web_Assignment
                 object objRes = reader.ReadToEnd();
                 var theEvent = JsonConvert.DeserializeObject<Event>(objRes.ToString());
 
-                //string gameID = theEvent.discipline;
-                //ApplicationDbContext db = new ApplicationDbContext();                 tried to fix the name whens its displayed, its displaying ID atm 
-                //var getName = from s in db.Sports 
-                //              where s.APISportID == gameID
-                //              select s.sportName;
+                var gameID = theEvent.discipline;             
+
+                ApplicationDbContext db = new ApplicationDbContext();
+                var getName = (string)(from s in db.Sports
+                                 where s.APISportID == gameID
+                                 select s.sportName).FirstOrDefault();
 
                 eventDes.InnerText = theEvent.description;
                 fullName.InnerText = theEvent.full_name;
-                //gameName.Text = getName.ToString();
-                gameName.Text = theEvent.discipline;
-                startDate.Text = theEvent.date_start + "- " + theEvent.date_end;
+                gameName.Text = getName;
+                startDate.Text = theEvent.date_start + "  until  " + theEvent.date_end;
                 location.Text = theEvent.country + ", " + theEvent.location;
                 prize.Text = theEvent.prize;
 
