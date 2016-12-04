@@ -16,9 +16,9 @@ namespace Web_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //yourUpComing();
-            //yourNearby();
-            //randomEvent();
+            yourUpComing();
+            yourNearby();
+            randomEvent();
         }
 
         public string SportName(Sport fs)
@@ -74,10 +74,10 @@ namespace Web_Assignment
             if (favSport != null)
             {
 
-                var myRequest = WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "&discipline=" + favSport.APISportID);
+                var myRequest = WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + (DateTime.Now.Month.ToString().Length == 1 ? "0" + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + "-" + (DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()) + "&discipline=" + favSport.APISportID);
                 myRequest.Method = "GET";
                 myRequest.UserAgent = "WebRequestDemo";
-                myRequest.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
+                myRequest.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
                 using (var theResponse = myRequest.GetResponse())
                 {
                     var dataStream = theResponse.GetResponseStream();
@@ -99,10 +99,10 @@ namespace Web_Assignment
         {
             Location myLocation = getLocation();
             var myRequest =
-            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "&country=" + myLocation.countryCode);
+            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + (DateTime.Now.Month.ToString().Length == 1 ? "0" + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + "-" + (DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()) + "&country=" + myLocation.countryCode);
             myRequest.Method = "GET";
             myRequest.UserAgent = "WebRequestDemo";
-            myRequest.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
+            myRequest.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
             using (var theResponse = myRequest.GetResponse())
             {
                 var dataStream = theResponse.GetResponseStream();
@@ -123,10 +123,10 @@ namespace Web_Assignment
         {
             Location myLocation = getLocation();
             var myRequest =
-            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "&featured=1");
+            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + (DateTime.Now.Month.ToString().Length == 1 ? "0" + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + "-" + (DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()) + "&featured=1");
             myRequest.Method = "GET";
             myRequest.UserAgent = "WebRequestDemo";
-            myRequest.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
+            myRequest.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
             using (var theResponse = myRequest.GetResponse())
             {
                 var dataStream = theResponse.GetResponseStream();

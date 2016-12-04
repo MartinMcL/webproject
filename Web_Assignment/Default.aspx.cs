@@ -16,17 +16,15 @@ namespace Web_Assignment
         protected void Page_Load(object sender, EventArgs e)
         {
             GetTrending();
-            //GetUpcoming();
-            //GetLatest();
+            GetUpcoming();
+            GetLatest();
         }
         public void GetUpcoming()
         {
             var myRequest =
-            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
+            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + (DateTime.Now.Month.ToString().Length == 1 ? "0"+DateTime.Now.Month.ToString(): DateTime.Now.Month.ToString()) + "-" + (DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()));
             myRequest.Method = "GET";
             myRequest.UserAgent = "WebRequestDemo";
-            myRequest.ContentType = "application/json";
-            myRequest.Accept = "*/*";
             myRequest.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
             using (var theResponse = myRequest.GetResponse())
             {
@@ -45,7 +43,7 @@ namespace Web_Assignment
         public void GetLatest()
         {
             var myRequest =
-            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?status=completed&before_end=" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day);
+            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?status=completed&before_end=" + DateTime.Now.Year + "-" + (DateTime.Now.Month.ToString().Length == 1 ? "0" + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + "-" + (DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()));
             myRequest.Method = "GET";
             myRequest.UserAgent = "WebRequestDemo";
             myRequest.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
