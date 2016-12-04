@@ -16,9 +16,9 @@ namespace Web_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            yourUpComing();
-            yourNearby();
-            randomEvent();
+            //yourUpComing();
+            //yourNearby();
+            //randomEvent();
         }
 
         public string SportName(Sport fs)

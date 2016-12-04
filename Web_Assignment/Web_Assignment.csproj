@@ -187,6 +187,8 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\1466145_543504655742157_770598362_n.jpg" />
     <Content Include="Images\Logo.PNG" />
+    <Content Include="Images\poweredByToornament-dark.png" />
+    <Content Include="Images\poweredByToornament-light.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

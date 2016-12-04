@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - eSportsHD</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -86,7 +86,9 @@
                    <a href="https://www.youtube.com"><img class="col-md-1 col-md-offset-1 img-responsive" src="../Images/youtube.png" alt="Our Facebook Pages" /></a>
                    <a href="https://www.instagram.com"><img class="col-md-1 col-md-offset-1 img-responsive" src="../Images/instagram.png" alt="Our Facebook Pages" /></a>
                </div>
+                <asp:HyperLink NavigateUrl="https://toornament.com" CssClass="center col-md-offset-5" runat="server"><asp:Image ImageUrl="Images/poweredByToornament-light.png" runat="server" /></asp:HyperLink> 
                 <p>&copy; <%: DateTime.Now.Year %> - eSportsHD News</p>
+                
             </footer>
         </div>
     </form>
