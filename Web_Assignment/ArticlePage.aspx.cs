@@ -29,7 +29,7 @@ namespace Web_Assignment
             WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?name=" + eventName );
             requestForID.Method = "GET";
             requestForID.UserAgent = "WebRequestDemo";
-            requestForID.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
+            requestForID.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
             using (var theResponse = requestForID.GetResponse())
             {
                 var dataStream = theResponse.GetResponseStream();
@@ -46,7 +46,7 @@ namespace Web_Assignment
             WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments/" + eventID);
             requestInfo.Method = "GET";
             requestInfo.UserAgent = "WebRequestDemo";
-            requestInfo.Headers.Add("X-Api-Key", "tMOO055zm0le1b3XJu_pNxl4Q1i3yZuyF04uIwwSufI");
+            requestInfo.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
             using (var Response = requestInfo.GetResponse())
             {
                 var ds = Response.GetResponseStream();
