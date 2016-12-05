@@ -2,13 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script>
-    $(document).on("click", "td", function (e) {
-        var articleName = (e.target.innerHTML);
+        $(document).on("click", "td", function (e) {
+            var articleName = (e.target.innerHTML);
 
-        var params = { 'name': articleName };
-        window.location.href = "ArticlePage?" + jQuery.param(params);
-    });
-</script>
+            var params = { 'name': articleName };
+            window.location.href = "ArticlePage?" + jQuery.param(params);
+        });
+    </script>
     <div class="container row">
         <div class="col-md-3 mainContent">
             <div id="profilePic">
@@ -25,12 +25,44 @@
         <div class="col-md-9 ">
             <div class="mainContent">
                 <h3 class="col-md-offset-1 text-primary">Latest results</h3>
-                <h4>
-                    <!-- your fav sport name here-->
-                </h4>
-                <div>
-                    <!--last matches results here -->
-                </div>
+                <asp:Table runat="server" ID="tblLatestResults">
+                    <asp:TableHeaderRow>
+                        <asp:TableHeaderCell>Tournament</asp:TableHeaderCell>
+                        <asp:TableHeaderCell>Team #1</asp:TableHeaderCell>
+                        <asp:TableHeaderCell>Team #1 Score</asp:TableHeaderCell>
+                        <asp:TableHeaderCell>Team #2</asp:TableHeaderCell>
+                        <asp:TableHeaderCell>Team #2 Score</asp:TableHeaderCell>
+                    </asp:TableHeaderRow>
+                    <asp:TableRow>
+                        <asp:TableCell ID="Tourn1">No Information</asp:TableCell>
+                        <asp:TableCell ID="1Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="1Team1Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="1Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="1Team2Score">No Information</asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell ID="Tourn2">No Information</asp:TableCell>
+                        <asp:TableCell ID="2Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="2Team1Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="2Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="2Team2Score">No Information</asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell ID="Tourn3">No Information</asp:TableCell>
+                        <asp:TableCell ID="3Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="3Team1Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="3Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="3Team2Score">No Information</asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell ID="Tourn4">No Information</asp:TableCell>
+                        <asp:TableCell ID="4Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="4Team1Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="4Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="4Team2Score">No Information</asp:TableCell>
+                    </asp:TableRow>
+
+                </asp:Table>
             </div>
 
             <div class="mainContent">

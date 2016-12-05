@@ -19,6 +19,7 @@ namespace Web_Assignment
             yourUpComing();
             yourNearby();
             randomEvent();
+            latestResults();
         }
 
         public string SportName(Sport fs)
@@ -68,6 +69,8 @@ namespace Web_Assignment
 
         public string countryName(Location loc) { return loc.country; }
 
+
+
         public void yourUpComing()
         {
             Sport favSport = yourFavSport();
@@ -93,6 +96,33 @@ namespace Web_Assignment
                 }
             }
             
+
+        }
+
+        public void latestResults()
+        {
+            Sport favSport = yourFavSport();
+            if (favSport != null)
+            {
+                var myRequest = WebRequest.CreateHttp("https://api.toornament.com/v1/disciplines/" + favSport + "/matches?has_result=1&before_date=" + DateTime.Now.Year + "-" + (DateTime.Now.Month.ToString().Length == 1 ? "0" + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + "-" + (DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()) + "&sort=date_desc");
+                myRequest.Method = "GET";
+                myRequest.UserAgent = "WebRequestDemo";
+                myRequest.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
+                using (var theResponse = myRequest.GetResponse())
+                {
+                    var dataStream = theResponse.GetResponseStream();
+                    StreamReader reader = new StreamReader(dataStream);
+                    object objResponse = reader.ReadToEnd();
+                    List<Event> myEvents = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
+                    if (myEvents.Count > 0)
+                    {
+                        upcoming1.Text = myEvents[0].name;
+                    }
+                    dataStream.Close();
+                    theResponse.Close();
+                }
+            }
+
 
         }
         public void yourNearby()
@@ -144,29 +174,21 @@ namespace Web_Assignment
 
         }
 
-
-        public class Event
-        {
-            public string id { get; set; }
-            public string userId { get; set; }
-            public string discipline { get; set; }
-            public string name { get; set; }
-            public string full_name { get; set; }
-            public string status { get; set; }
-            public string date_start { get; set; }
-            public string date_end { get; set; }
-            public bool online { get; set; }
-            public bool ispublic { get; set; }
-            public string location { get; set; }
-            public string country { get; set; }
-            public int size { get; set; }
-
-        }
         public class Location
         {
             public string status { get; set; }
             public string country { get; set; }
             public string countryCode { get; set; }
+        }
+
+        public class Result
+        {
+            public Event tournament { get; set; }
+
+        }
+        class TeamResult
+        {
+            public int MyProperty { get; set; }
         }
     }
 }

@@ -61,12 +61,12 @@ namespace Web_Assignment
                                  where s.APISportID == gameID
                                  select s.sportName).FirstOrDefault();
 
-                eventDes.InnerText = theEvent.description;
+                eventDes.InnerText = theEvent.description == null || theEvent.description.Length < 2 ? "No description for this event!" : theEvent.description;
                 fullName.InnerText = theEvent.full_name;
                 gameName.Text = getName;
                 startDate.Text = theEvent.date_start + "  until  " + theEvent.date_end;
-                location.Text = theEvent.country + ", " + theEvent.location;
-                prize.Text = theEvent.prize;
+                location.Text = (theEvent.country + ", " + theEvent.location).ToString().Length < 4 || theEvent.location == null || theEvent.country == null ? "Unknown" : (theEvent.country + ", " + theEvent.location);
+                prize.Text = theEvent.prize == null || theEvent.prize.ToString().Length < 2 ? "Unknown" : theEvent.prize;
 
                 ds.Close();
                 Response.Close();
