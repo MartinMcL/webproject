@@ -13,85 +13,76 @@ namespace Web_Assignment {
     public partial class _Default {
         
         /// <summary>
-        /// caption1title control.
+        /// eventTitle1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label caption1title;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventTitle1;
         
         /// <summary>
-        /// caption2title control.
+        /// cap0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label caption2title;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cap0;
         
         /// <summary>
-        /// caption3title control.
+        /// eventTitle2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label caption3title;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventTitle2;
         
         /// <summary>
-        /// caption4title control.
+        /// cap1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label caption4title;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cap1;
         
         /// <summary>
-        /// tblTrend control.
+        /// eventTitle3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblTrend;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventTitle3;
         
         /// <summary>
-        /// trend1 control.
+        /// cap2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell trend1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cap2;
         
         /// <summary>
-        /// trend2 control.
+        /// eventTitle4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell trend2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventTitle4;
         
         /// <summary>
-        /// trend3 control.
+        /// cap3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell trend3;
-        
-        /// <summary>
-        /// trend4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell trend4;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cap3;
         
         /// <summary>
         /// tblUpcoming control.

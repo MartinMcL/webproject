@@ -186,6 +186,10 @@
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\1466145_543504655742157_770598362_n.jpg" />
+    <Content Include="Images\es_1.jpg" />
+    <Content Include="Images\es_2.png" />
+    <Content Include="Images\es_3.jpg" />
+    <Content Include="Images\es_4.jpg" />
     <Content Include="Images\Logo.PNG" />
     <Content Include="Images\poweredByToornament-dark.png" />
     <Content Include="Images\poweredByToornament-light.png" />

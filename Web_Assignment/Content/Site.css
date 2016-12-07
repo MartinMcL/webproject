@@ -59,3 +59,14 @@ tr:hover {
 
 }
 
+.carousel-caption {
+    background-color: black;
+    opacity:0.65;
+    background: linear-gradient(to right, rgba(0,0,0,0),  rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,0));
+    margin-bottom:90px;
+}
+
+.imgCss {
+    max-height:50%;
+    max-width:none;
+}

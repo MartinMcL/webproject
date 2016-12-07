@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json;
-
+using Web_Assignment.Models;
 
 namespace Web_Assignment
 {
@@ -76,18 +76,44 @@ namespace Web_Assignment
                 StreamReader reader = new StreamReader(dataStream);
                 object objResponse = reader.ReadToEnd();
                 var trendEvent = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
-                trend1.Text = trendEvent[0].name;
-                trend2.Text = trendEvent[1].name;
-                trend3.Text = trendEvent[2].name;
-                trend4.Text = trendEvent[3].name;
-                caption1title.Text = trendEvent[0].name;
-                caption2title.Text = trendEvent[1].name;
-                caption3title.Text = trendEvent[2].name;
-                caption4title.Text = trendEvent[3].name;
-                //caption1desc.Text = trendEvent[0].description;
-                //caption2desc.Text = trendEvent[1].description;
-                //caption3desc.Text = trendEvent[2].description;
-                //caption4desc.Text = trendEvent[3].description;
+                //trend1.Text = trendEvent[0].name;
+                //trend2.Text = trendEvent[1].name;
+                //trend3.Text = trendEvent[2].name;
+                //trend4.Text = trendEvent[3].name;
+
+                //1st slide
+                var getName1 = trendEvent[0].discipline;
+                ApplicationDbContext db = new ApplicationDbContext();
+                var gameName1 = (string)(from s in db.Sports
+                                       where s.APISportID == getName1
+                                       select s.sportName).FirstOrDefault();
+                cap0.InnerText = "Featured " + gameName1 + " event in " + trendEvent[0].location + " " + trendEvent[0].country;
+                eventTitle1.InnerText = trendEvent[0].name;
+
+                //2nd slide
+                var getName2 = trendEvent[1].discipline;
+                var gameName2 = (string)(from s in db.Sports
+                                         where s.APISportID == getName2
+                                         select s.sportName).FirstOrDefault();
+                cap1.InnerText = "Featured " + gameName2 + " event in " + trendEvent[1].location + " " + trendEvent[0].country;
+                eventTitle2.InnerText = trendEvent[1].name;
+
+                //3rd slide
+                var getName3 = trendEvent[2].discipline;
+                var gameName3 = (string)(from s in db.Sports
+                                         where s.APISportID == getName3
+                                         select s.sportName).FirstOrDefault();
+                cap2.InnerText = "Featured " + gameName3 + " event in " + trendEvent[2].location + " " + trendEvent[0].country;
+                eventTitle3.InnerText = trendEvent[2].name;
+
+                //4th slide
+                var getName4 = trendEvent[3].discipline;
+                var gameName4 = (string)(from s in db.Sports
+                                         where s.APISportID == getName4
+                                         select s.sportName).FirstOrDefault();
+                cap3.InnerText = "Featured " + gameName4 + " event in " + trendEvent[3].location + " " + trendEvent[0].country;
+                eventTitle4.InnerText = trendEvent[3].name;
+
                 dataStream.Close();
                 theResponse.Close();
             }
