@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System.Configuration;
 
 namespace Web_Assignment.Account
 {
@@ -24,6 +25,13 @@ namespace Web_Assignment.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                ConfigurationManager.AppSettings["SecurePath"] +
+                "Account/ManagePassword.aspx";
+                Response.Redirect(url);
+            }
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
             if (!IsPostBack)

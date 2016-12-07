@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Register"  Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="ArticlePage.aspx.cs" Inherits="Web_Assignment.ArticlePage" %>
+﻿<%@ Page Title="Article"  Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="ArticlePage.aspx.cs" Inherits="Web_Assignment.ArticlePage" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <div class="container lightgrey mainContent">

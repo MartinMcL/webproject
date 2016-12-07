@@ -6,11 +6,23 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using Web_Assignment.Models;
+using System.Configuration;
 
 namespace Web_Assignment.Account
 {
     public partial class ResetPassword : Page
     {
+
+        protected void Page_Load()
+        {
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                ConfigurationManager.AppSettings["SecurePath"] +
+                "Account/ResetPassword.aspx";
+                Response.Redirect(url);
+            }
+        }
         protected string StatusMessage
         {
             get;

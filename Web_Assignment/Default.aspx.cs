@@ -8,6 +8,7 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 using Web_Assignment.Models;
+using System.Configuration;
 
 namespace Web_Assignment
 {
@@ -15,6 +16,12 @@ namespace Web_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                ConfigurationManager.AppSettings["SecurePath"];
+                Response.Redirect(url);
+            }
             GetTrending();
             GetUpcoming();
             GetLatest();

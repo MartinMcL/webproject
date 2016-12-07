@@ -24,6 +24,14 @@ namespace Web_Assignment.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                System.Configuration.ConfigurationManager.AppSettings["SecurePath"] +
+                "Account/RegisterExternalLogin.aspx";
+                Response.Redirect(url);
+            }
+
             var userId = signinManager.GetVerifiedUserId<ApplicationUser, string>();
             if (userId == null)
             {

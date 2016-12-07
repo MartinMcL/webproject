@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -16,6 +17,13 @@ namespace Web_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                ConfigurationManager.AppSettings["SecurePath"] +
+                "/UserAccountPage.aspx";
+                Response.Redirect(url);
+            }
             yourUpComing();
             yourNearby();
             randomEvent();

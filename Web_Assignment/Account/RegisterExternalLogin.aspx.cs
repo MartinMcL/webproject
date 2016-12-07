@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using Web_Assignment.Models;
+using System.Configuration;
 
 namespace Web_Assignment.Account
 {
@@ -29,6 +30,13 @@ namespace Web_Assignment.Account
 
         protected void Page_Load()
         {
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                ConfigurationManager.AppSettings["SecurePath"] +
+                "Account/RegisterExternalLogin.aspx";
+                Response.Redirect(url);
+            }
             // Process the result from an auth provider in the request
             ProviderName = IdentityHelper.GetProviderNameFromRequest(Request);
             if (String.IsNullOrEmpty(ProviderName))

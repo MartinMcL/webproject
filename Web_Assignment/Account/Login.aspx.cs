@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using Web_Assignment.Models;
+using System.Configuration;
 
 namespace Web_Assignment.Account
 {
@@ -12,6 +13,15 @@ namespace Web_Assignment.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+         
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                ConfigurationManager.AppSettings["SecurePath"] +
+                "Account/Login.aspx";
+                Response.Redirect(url);
+            }
+
             RegisterHyperLink.NavigateUrl = "Register";
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";

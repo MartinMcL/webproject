@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using System.Configuration;
 
 namespace Web_Assignment.Account
 {
@@ -12,6 +13,13 @@ namespace Web_Assignment.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                ConfigurationManager.AppSettings["SecurePath"] +
+                "Account/OpenAuthProviders.aspx";
+                Response.Redirect(url);
+            }
             if (IsPostBack)
             {
                 var provider = Request.Form["provider"];
