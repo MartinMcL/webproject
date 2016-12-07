@@ -281,7 +281,7 @@ namespace Web_Assignment
         {
             Location myLocation = getLocation();
             var myRequest =
-            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + (DateTime.Now.Month.ToString().Length == 1 ? "0" + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + "-" + (DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()) + "&country=" + myLocation.countryCode);
+            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?country="+ myLocation.countryCode);
             myRequest.Method = "GET";
             myRequest.UserAgent = "WebRequestDemo";
             myRequest.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
