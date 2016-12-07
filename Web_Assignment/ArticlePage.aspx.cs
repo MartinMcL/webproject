@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -17,9 +18,20 @@ namespace Web_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                ConfigurationManager.AppSettings["SecurePath"] +
+                "/ArticlePage.aspx";
+                Response.Redirect(url);
+            }
+        
             if (Request.QueryString["name"] != null )
             {
                 eventName  = Request.QueryString["name"];
+                Page.Title = eventName;
             }
 
             eventTitle.InnerText = eventName.ToString();

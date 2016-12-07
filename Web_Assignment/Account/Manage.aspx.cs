@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using Web_Assignment.Models;
+using System.Configuration;
 
 namespace Web_Assignment.Account
 {
@@ -35,6 +36,13 @@ namespace Web_Assignment.Account
 
         protected void Page_Load()
         {
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                ConfigurationManager.AppSettings["SecurePath"] +
+                "Account/Manage.aspx";
+                Response.Redirect(url);
+            }
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
             HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
