@@ -80,6 +80,14 @@ namespace Web_Assignment
                 trend2.Text = trendEvent[1].name;
                 trend3.Text = trendEvent[2].name;
                 trend4.Text = trendEvent[3].name;
+                caption1title.Text = trendEvent[0].name;
+                caption2title.Text = trendEvent[1].name;
+                caption3title.Text = trendEvent[2].name;
+                caption4title.Text = trendEvent[3].name;
+                //caption1desc.Text = trendEvent[0].description;
+                //caption2desc.Text = trendEvent[1].description;
+                //caption3desc.Text = trendEvent[2].description;
+                //caption4desc.Text = trendEvent[3].description;
                 dataStream.Close();
                 theResponse.Close();
             }

@@ -48,9 +48,11 @@ input[type="select"] {
     padding-bottom: 26px;
     background-color:#333333;
 }
-td:hover {
+tr:hover {
     color: black;
 }
+
+
 #myCarousel {
     padding-top: 10px;
     border: rgba(0, 0, 0, 0.46) solid 0.2px;

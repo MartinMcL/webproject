@@ -3,12 +3,12 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- gets the event name, uses query string to pass name to article page -->
     <script>
-    $(document).on("click", "td", function (e) {
-        var articleName = (e.target.innerHTML);
+        $(document).on("click", "td", function (e) {
+            var articleName = (e.target.innerHTML);
 
-        var params = { 'name': articleName };
-        window.location.href = "ArticlePage?" + jQuery.param(params);
-    });
+            var params = { 'name': articleName };
+            window.location.href = "ArticlePage?" + jQuery.param(params);
+        });
 </script>
 
 
@@ -25,18 +25,34 @@
   <div class="carousel-inner" style="height:360px;" role="listbox" >
     <div class="item active">
       <img src="http://e-sports.net/wp-content/uploads/2015/08/esports-betting.jpg" ">
+        <div class="carousel-caption">
+            <asp:Label runat="server" ID="caption1title"  CssClass="text-primary  btn-lg" />
+            <%--<asp:Label runat="server" ID="caption1desc"  CssClass="text-primary" />--%>
+      </div>
     </div>
 
     <div class="item">
       <img src="https://s.aolcdn.com/hss/storage/midas/950f82ebebbd57f0e9586d9cd4108b00/202368928/esl.jpg" >
+    <div class="carousel-caption">
+            <asp:Label runat="server" ID="caption2title"  CssClass="text-primary" />
+            <%--<asp:Label runat="server" ID="caption2desc"  CssClass="text-primary" />--%>
+      </div>
     </div>
 
     <div class="item">
       <img src="http://image3.redbull.com/rbcom/010/2015-12-02/1331763041375_1/0010/1/1500/1000/1/does-esports-need-a-players%E2%80%99-union.jpg" >
+    <div class="carousel-caption">
+            <asp:Label runat="server" ID="caption3title"  CssClass="text-primary btn-lg" />
+            <%--<asp:Label runat="server" ID="caption3desc"  CssClass="text-primary" />--%>
+      </div>
     </div>
 
     <div class="item">
       <img src="https://cdn1.twinfinite.net/wp-content/uploads/2016/05/esports.jpg" alt="Flower">
+       <div class="carousel-caption">
+            <asp:Label runat="server" ID="caption4title" CssClass="text-primary" />
+            <%--<asp:Label runat="server" ID="caption4desc"  CssClass="text-primary" />--%>
+      </div> 
     </div>
   </div>
  

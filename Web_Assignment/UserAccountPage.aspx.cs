@@ -20,6 +20,7 @@ namespace Web_Assignment
             yourNearby();
             randomEvent();
             latestResults();
+            getUpcomingMatches();
         }
 
         public string SportName(Sport fs)
@@ -121,33 +122,153 @@ namespace Web_Assignment
                         tbl1Team1Score.Text = myResults[0].opponents[0].score.ToString();
                         tbl1Team2.Text = myResults[0].opponents[1].participant.name;
                         tbl1Team2Score.Text = myResults[0].opponents[1].score.ToString();
+                        if (myResults.Count > 1)
+                        {
+                            tblLatestResults.Visible = true;
+                            noResultsError.Visible = false;
+                            tbl2Tourn2.Text = myResults[1].tournament.name;
+                            tbl2Team1.Text = myResults[1].opponents[0].participant.name;
+                            tbl2Team1Score.Text = myResults[1].opponents[0].score.ToString();
+                            tbl2Team2.Text = myResults[1].opponents[1].participant.name;
+                            tbl2Team2Score.Text = myResults[1].opponents[1].score.ToString();
+                            if (myResults.Count > 2)
+                            {
+                                tblLatestResults.Visible = true;
+                                noResultsError.Visible = false;
+                                tbl3Tourn3.Text = myResults[2].tournament.name;
+                                tbl3Team1.Text = myResults[2].opponents[0].participant.name;
+                                tbl3Team1Score.Text = myResults[2].opponents[0].score.ToString();
+                                tbl3Team2.Text = myResults[2].opponents[1].participant.name;
+                                tbl3Team2Score.Text = myResults[2].opponents[1].score.ToString();
+                                if (myResults.Count > 3)
+                                {
+                                    tblLatestResults.Visible = true;
+                                    noResultsError.Visible = false;
+                                    tbl4Tourn4.Text = myResults[3].tournament.name;
+                                    tbl4Team1.Text = myResults[3].opponents[0].participant.name;
+                                    tbl4Team1Score.Text = myResults[3].opponents[0].score.ToString();
+                                    tbl4Team2.Text = myResults[3].opponents[1].participant.name;
+                                    tbl4Team2Score.Text = myResults[3].opponents[1].score.ToString();
+                                }
+                                else
+                                {
+                                    tblLatestResults.Visible = true;
+                                    noResultsError.Visible = false;
+                                    tblLatestResults.Rows[3].Visible = false;
+                                }
+                            }
+                            else
+                            {
+                                tblLatestResults.Visible = true;
+                                noResultsError.Visible = false;
+                                tblLatestResults.Rows[2].Visible = false;
+                                tblLatestResults.Rows[3].Visible = false;
 
-                        tbl2Tourn2.Text = myResults[1].tournament.name;
-                        tbl2Team1.Text = myResults[1].opponents[0].participant.name;
-                        tbl2Team1Score.Text = myResults[1].opponents[0].score.ToString();
-                        tbl2Team2.Text = myResults[1].opponents[1].participant.name;
-                        tbl2Team2Score.Text = myResults[1].opponents[1].score.ToString();
-
-                        tbl3Tourn3.Text = myResults[2].tournament.name;
-                        tbl3Team1.Text = myResults[2].opponents[0].participant.name;
-                        tbl3Team1Score.Text = myResults[2].opponents[0].score.ToString();
-                        tbl3Team2.Text = myResults[2].opponents[1].participant.name;
-                        tbl3Team2Score.Text = myResults[2].opponents[1].score.ToString();
-
-                        tbl4Tourn4.Text = myResults[3].tournament.name;
-                        tbl4Team1.Text = myResults[3].opponents[0].participant.name;
-                        tbl4Team1Score.Text = myResults[3].opponents[0].score.ToString();
-                        tbl4Team2.Text = myResults[3].opponents[1].participant.name;
-                        tbl4Team2Score.Text = myResults[3].opponents[1].score.ToString();
-
+                            }
+                        }
+                        else
+                        {
+                            tblLatestResults.Visible = true;
+                            noResultsError.Visible = false;
+                            tblLatestResults.Rows[1].Visible = false;
+                            tblLatestResults.Rows[2].Visible = false;
+                            tblLatestResults.Rows[3].Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        tblLatestResults.Visible = false;
+                        noResultsError.Visible = true;
                     }
                     dataStream.Close();
                     theResponse.Close();
                 }
             }
-
-
         }
+        public void getUpcomingMatches()
+        {
+            Sport favSport = yourFavSport();
+            if (favSport != null)
+            {
+                var myRequest = WebRequest.CreateHttp("https://api.toornament.com/v1/disciplines/" + favSport.APISportID + "/matches?after_date=" + DateTime.Now.Year + "-" + (DateTime.Now.Month.ToString().Length == 1 ? "0" + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + "-" + (DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()));
+                myRequest.Method = "GET";
+                myRequest.UserAgent = "WebRequestDemo";
+                myRequest.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
+                using (var theResponse = myRequest.GetResponse())
+                {
+                    var dataStream = theResponse.GetResponseStream();
+                    StreamReader reader = new StreamReader(dataStream);
+                    object objResponse = reader.ReadToEnd();
+                    List<Result> myResults = JsonConvert.DeserializeObject<List<Result>>(objResponse.ToString());
+                    if (myResults.Count > 0)
+                    {
+                        tb1Tourn1.Text = myResults[0].tournament.name;
+                        tb1Team1.Text = myResults[0].opponents[0].participant.name;
+                        tb1Team2.Text = myResults[0].opponents[1].participant.name;
+                        tb1Date.Text = myResults[0].date.ToString();
+                        if (myResults.Count > 1)
+                        {
+                            upcomingMatches.Visible = true;
+                            noUpcoming.Visible = false;
+                            tb2Tourn2.Text = myResults[1].tournament.name;
+                            tb2Team1.Text = myResults[1].opponents[0].participant.name;
+                            tb2Team2.Text = myResults[1].opponents[1].participant.name;
+                            tb2Date.Text = myResults[1].date.ToString();
+                            if (myResults.Count > 2)
+                            {
+                                upcomingMatches.Visible = true;
+                                noUpcoming.Visible = false;
+                                tb3Tourn3.Text = myResults[2].tournament.name;
+                                tb3Team1.Text = myResults[2].opponents[0].participant.name;
+                                tb3Team2.Text = myResults[2].opponents[1].participant.name;
+                                tb3Date.Text = myResults[2].date.ToString();
+                                if (myResults.Count > 3)
+                                {
+                                    upcomingMatches.Visible = true;
+                                    noUpcoming.Visible = false;
+                                    tb4Tourn4.Text = myResults[3].tournament.name;
+                                    tb4Team1.Text = myResults[3].opponents[0].participant.name;
+                                    tb4Team2.Text = myResults[3].opponents[1].participant.name;
+                                    tb4Date.Text = myResults[3].date.ToString();
+                                }
+                                else
+                                {
+                                    upcomingMatches.Visible = true;
+                                    noUpcoming.Visible = false;
+                                    upcomingMatches.Rows[3].Visible = false;
+                                }
+                            }
+                            else
+                            {
+                                upcomingMatches.Visible = true;
+                                noUpcoming.Visible = false;
+                                upcomingMatches.Rows[2].Visible = false;
+                                upcomingMatches.Rows[3].Visible = false;
+                            }
+                        }
+                        else
+                        {
+                            upcomingMatches.Visible = true;
+                            noUpcoming.Visible = false;
+                            upcomingMatches.Rows[1].Visible = false;
+                            upcomingMatches.Rows[2].Visible = false;
+                            upcomingMatches.Rows[3].Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        upcomingMatches.Visible = false;
+                        noUpcoming.Visible = true;
+                    }
+                    dataStream.Close();
+                    theResponse.Close();
+                }
+            }
+        }
+
+
+
+
         public void yourNearby()
         {
             Location myLocation = getLocation();

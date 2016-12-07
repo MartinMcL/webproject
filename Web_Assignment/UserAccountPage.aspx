@@ -25,7 +25,8 @@
         <div class="col-md-9 ">
             <div class="mainContent">
                 <h3 class="col-md-offset-1 text-primary">Latest results</h3>
-                <asp:Table runat="server" ID="tblLatestResults">
+                <asp:Label runat="server" ID="noResultsError">No results available for this sport.</asp:Label>
+                <asp:Table runat="server" ID="tblLatestResults" CssClass="table-bordered table-responsive table-condensed table-hover table">
                     <asp:TableHeaderRow>
                         <asp:TableHeaderCell>Tournament</asp:TableHeaderCell>
                         <asp:TableHeaderCell>Team #1</asp:TableHeaderCell>
@@ -67,12 +68,40 @@
 
             <div class="mainContent">
                 <h3 class="col-md-offset-1 text-primary">Upcoming matches</h3>
-                <h4>
-                    <!-- your fav sport name here-->
-                </h4>
-                <div>
-                    <!-- matches fixtures here -->
-                </div>
+                <asp:Label runat="server" ID="noUpcoming">No upcoming matches available for this sport.</asp:Label>
+                <asp:Table runat="server" ID="upcomingMatches" CssClass="table-bordered table-responsive table-condensed table-hover table">
+                    <asp:TableHeaderRow>
+                        <asp:TableHeaderCell>Tournament</asp:TableHeaderCell>
+                        <asp:TableHeaderCell>Team #1</asp:TableHeaderCell>
+                        <asp:TableHeaderCell>Team #2</asp:TableHeaderCell>
+                        <asp:TableHeaderCell>DateOfEvemt</asp:TableHeaderCell>
+                    </asp:TableHeaderRow>
+                    <asp:TableRow>
+                        <asp:TableCell ID="tb1Tourn1">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb1Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb1Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb1Date">No Information</asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell ID="tb2Tourn2">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb2Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb2Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb2Date">No Information</asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell ID="tb3Tourn3">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb3Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb3Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb3Date">No Information</asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell ID="tb4Tourn4">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb4Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb4Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="tb4Date">No Information</asp:TableCell>
+                    </asp:TableRow>
+
+                </asp:Table>
             </div>
         </div>
     </div>

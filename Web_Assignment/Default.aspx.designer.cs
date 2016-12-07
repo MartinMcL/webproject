@@ -13,6 +13,42 @@ namespace Web_Assignment {
     public partial class _Default {
         
         /// <summary>
+        /// caption1title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label caption1title;
+        
+        /// <summary>
+        /// caption2title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label caption2title;
+        
+        /// <summary>
+        /// caption3title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label caption3title;
+        
+        /// <summary>
+        /// caption4title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label caption4title;
+        
+        /// <summary>
         /// tblTrend control.
         /// </summary>
         /// <remarks>
