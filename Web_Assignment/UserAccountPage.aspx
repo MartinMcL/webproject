@@ -34,32 +34,32 @@
                         <asp:TableHeaderCell>Team #2 Score</asp:TableHeaderCell>
                     </asp:TableHeaderRow>
                     <asp:TableRow>
-                        <asp:TableCell ID="Tourn1">No Information</asp:TableCell>
-                        <asp:TableCell ID="1Team1">No Information</asp:TableCell>
-                        <asp:TableCell ID="1Team1Score">No Information</asp:TableCell>
-                        <asp:TableCell ID="1Team2">No Information</asp:TableCell>
-                        <asp:TableCell ID="1Team2Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl1Tourn1">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl1Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl1Team1Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl1Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl1Team2Score">No Information</asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell ID="Tourn2">No Information</asp:TableCell>
-                        <asp:TableCell ID="2Team1">No Information</asp:TableCell>
-                        <asp:TableCell ID="2Team1Score">No Information</asp:TableCell>
-                        <asp:TableCell ID="2Team2">No Information</asp:TableCell>
-                        <asp:TableCell ID="2Team2Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl2Tourn2">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl2Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl2Team1Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl2Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl2Team2Score">No Information</asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell ID="Tourn3">No Information</asp:TableCell>
-                        <asp:TableCell ID="3Team1">No Information</asp:TableCell>
-                        <asp:TableCell ID="3Team1Score">No Information</asp:TableCell>
-                        <asp:TableCell ID="3Team2">No Information</asp:TableCell>
-                        <asp:TableCell ID="3Team2Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl3Tourn3">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl3Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl3Team1Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl3Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl3Team2Score">No Information</asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                        <asp:TableCell ID="Tourn4">No Information</asp:TableCell>
-                        <asp:TableCell ID="4Team1">No Information</asp:TableCell>
-                        <asp:TableCell ID="4Team1Score">No Information</asp:TableCell>
-                        <asp:TableCell ID="4Team2">No Information</asp:TableCell>
-                        <asp:TableCell ID="4Team2Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl4Tourn4">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl4Team1">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl4Team1Score">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl4Team2">No Information</asp:TableCell>
+                        <asp:TableCell ID="tbl4Team2Score">No Information</asp:TableCell>
                     </asp:TableRow>
 
                 </asp:Table>

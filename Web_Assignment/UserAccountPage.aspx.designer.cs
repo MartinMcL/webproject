@@ -22,184 +22,184 @@ namespace Web_Assignment {
         protected global::System.Web.UI.WebControls.Table tblLatestResults;
         
         /// <summary>
-        /// Tourn1 control.
+        /// tbl1Tourn1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell Tourn1;
+        protected global::System.Web.UI.WebControls.TableCell tbl1Tourn1;
         
         /// <summary>
-        /// 1Team1 control.
+        /// tbl1Team1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 1Team1;
+        protected global::System.Web.UI.WebControls.TableCell tbl1Team1;
         
         /// <summary>
-        /// 1Team1Score control.
+        /// tbl1Team1Score control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 1Team1Score;
+        protected global::System.Web.UI.WebControls.TableCell tbl1Team1Score;
         
         /// <summary>
-        /// 1Team2 control.
+        /// tbl1Team2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 1Team2;
+        protected global::System.Web.UI.WebControls.TableCell tbl1Team2;
         
         /// <summary>
-        /// 1Team2Score control.
+        /// tbl1Team2Score control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 1Team2Score;
+        protected global::System.Web.UI.WebControls.TableCell tbl1Team2Score;
         
         /// <summary>
-        /// Tourn2 control.
+        /// tbl2Tourn2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell Tourn2;
+        protected global::System.Web.UI.WebControls.TableCell tbl2Tourn2;
         
         /// <summary>
-        /// 2Team1 control.
+        /// tbl2Team1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 2Team1;
+        protected global::System.Web.UI.WebControls.TableCell tbl2Team1;
         
         /// <summary>
-        /// 2Team1Score control.
+        /// tbl2Team1Score control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 2Team1Score;
+        protected global::System.Web.UI.WebControls.TableCell tbl2Team1Score;
         
         /// <summary>
-        /// 2Team2 control.
+        /// tbl2Team2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 2Team2;
+        protected global::System.Web.UI.WebControls.TableCell tbl2Team2;
         
         /// <summary>
-        /// 2Team2Score control.
+        /// tbl2Team2Score control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 2Team2Score;
+        protected global::System.Web.UI.WebControls.TableCell tbl2Team2Score;
         
         /// <summary>
-        /// Tourn3 control.
+        /// tbl3Tourn3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell Tourn3;
+        protected global::System.Web.UI.WebControls.TableCell tbl3Tourn3;
         
         /// <summary>
-        /// 3Team1 control.
+        /// tbl3Team1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 3Team1;
+        protected global::System.Web.UI.WebControls.TableCell tbl3Team1;
         
         /// <summary>
-        /// 3Team1Score control.
+        /// tbl3Team1Score control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 3Team1Score;
+        protected global::System.Web.UI.WebControls.TableCell tbl3Team1Score;
         
         /// <summary>
-        /// 3Team2 control.
+        /// tbl3Team2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 3Team2;
+        protected global::System.Web.UI.WebControls.TableCell tbl3Team2;
         
         /// <summary>
-        /// 3Team2Score control.
+        /// tbl3Team2Score control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 3Team2Score;
+        protected global::System.Web.UI.WebControls.TableCell tbl3Team2Score;
         
         /// <summary>
-        /// Tourn4 control.
+        /// tbl4Tourn4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell Tourn4;
+        protected global::System.Web.UI.WebControls.TableCell tbl4Tourn4;
         
         /// <summary>
-        /// 4Team1 control.
+        /// tbl4Team1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 4Team1;
+        protected global::System.Web.UI.WebControls.TableCell tbl4Team1;
         
         /// <summary>
-        /// 4Team1Score control.
+        /// tbl4Team1Score control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 4Team1Score;
+        protected global::System.Web.UI.WebControls.TableCell tbl4Team1Score;
         
         /// <summary>
-        /// 4Team2 control.
+        /// tbl4Team2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 4Team2;
+        protected global::System.Web.UI.WebControls.TableCell tbl4Team2;
         
         /// <summary>
-        /// 4Team2Score control.
+        /// tbl4Team2Score control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell 4Team2Score;
+        protected global::System.Web.UI.WebControls.TableCell tbl4Team2Score;
         
         /// <summary>
         /// tblUpcoming control.
