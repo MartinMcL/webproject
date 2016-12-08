@@ -24,6 +24,10 @@ namespace Web_Assignment
                 "/UserAccountPage.aspx";
                 Response.Redirect(url);
             }
+            if (!User.Identity.IsAuthenticated)
+            {
+                Response.Redirect(ConfigurationManager.AppSettings["SecurePath"]);
+            }
             yourUpComing();
             yourNearby();
             randomEvent();
