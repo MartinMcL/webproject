@@ -31,7 +31,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <asp:Label runat="server" ID="noResultsError">No results available for this sport.</asp:Label>
+                            <asp:Label runat="server" CssClass="text-success col-md-offset-1 col-xs-offset-1" ID="noResultsError">No results available for this sport.</asp:Label>
                             <asp:Table runat="server" ID="tblLatestResults" CssClass="table-bordered table-hover table">
                                 <asp:TableHeaderRow>
                                     <asp:TableHeaderCell>Tournament</asp:TableHeaderCell>
@@ -80,7 +80,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <asp:Label runat="server" ID="noUpcoming">No upcoming matches available for this sport.</asp:Label>
+                            <asp:Label runat="server" CssClass="text-success col-md-offset-1 col-xs-offset-1" ID="noUpcoming">No upcoming matches available for this sport.</asp:Label>
                             <asp:Table runat="server" ID="upcomingMatches" CssClass="table-bordered table-responsive table-hover table">
                                 <asp:TableHeaderRow>
                                     <asp:TableHeaderCell>Tournament</asp:TableHeaderCell>
