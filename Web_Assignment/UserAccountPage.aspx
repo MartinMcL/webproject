@@ -2,12 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script>
-        $(document).on("click", "td", function (e) {
-            var articleName = (e.target.innerHTML);
-            if (articleName != "No upcoming events") {
+        $(document).ready(function () {
+            $('td').click(function (e) {
+                var articleName = (e.target.innerHTML);
+
                 var params = { 'name': articleName };
                 window.location.href = "ArticlePage?" + jQuery.param(params);
-            }
+            });
+            $('td').hover(function () {
+                $(this).css('cursor', 'pointer');
+            });
         });
     </script>
     <div class="container">

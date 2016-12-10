@@ -3,12 +3,18 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- gets the event name, uses query string to pass name to article page -->
     <script>
-        $(document).on("click", "td, h6", function (e) {
-            var articleName = (e.target.innerHTML);
+        $(document).ready(function () {
+            $('h6, td').click(function (e) {
+                var articleName = (e.target.innerHTML);
 
-            var params = { 'name': articleName };
-            window.location.href = "ArticlePage?" + jQuery.param(params);
+                var params = { 'name': articleName };
+                window.location.href = "ArticlePage?" + jQuery.param(params);
+            });
+            $('h6, td').hover(function () {
+                $(this).css('cursor', 'pointer');
+            });
         });
+        
     </script>
 
 
