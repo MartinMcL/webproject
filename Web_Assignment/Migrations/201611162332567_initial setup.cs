@@ -5,6 +5,9 @@ namespace Web_Assignment.Migrations
     
     public partial class initialsetup : DbMigration
     {
+
+        //inital setup was done by Dylan Murray (s00156252)
+
         public override void Up()
         {
             CreateTable(

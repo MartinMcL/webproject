@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UserAccountPage.aspx.cs" Inherits="Web_Assignment.UserAccountPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <script>
+    <script>        //Jquery was done by Dylan Murray (s00156252)
         $(document).ready(function () {
             $('td').click(function (e) { //When a table cell is clicked 
                 var articleName = (e.target.innerHTML); //Take the name of the event

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Web_Assignment._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <script>
+    <script> //Jquery was done by Dylan Murray (s00156252)
         $(document).ready(function () {
             $('h6, td').click(function (e) {   //event for the table cells and carousel so they can be clicked
                 var articleName = (e.target.innerHTML);

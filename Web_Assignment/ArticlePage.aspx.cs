@@ -12,13 +12,16 @@ using Web_Assignment.Models;
 
 namespace Web_Assignment
 {
+
+    //Article page was done by Dylan Murray (s00156252)
+
     public partial class ArticlePage : System.Web.UI.Page
     {
         public string eventName;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //redirect the user to https if not already
+            //redirect the user to https if not already  -- Security was done by Martin McLaughlin (s00151834)
 
             if (!Request.IsSecureConnection)
             {
