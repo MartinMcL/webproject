@@ -23,11 +23,11 @@ namespace Web_Assignment
             if (!Request.IsSecureConnection)
             {
                 string url =
-                ConfigurationManager.AppSettings["SecurePath"] +
+                ConfigurationManager.AppSettings["SecurePath"] +    
                 "/ArticlePage.aspx";
                 Response.Redirect(url);
             }
-            if (Request.QueryString["name"] != null)
+            if (Request.QueryString["name"] != null)  //Gets event name from query string so it can be used for api call 
             {
                 eventName = Request.QueryString["name"];
                 Page.Title = eventName;
@@ -49,7 +49,7 @@ namespace Web_Assignment
                 var getID = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
                 if (getID.Count > 0)
                 {
-                    eventID = getID[0].id;
+                    eventID = getID[0].id;   //gets id of the event to be used in a second call so that we can get more info about the event
                 }
                 else
                 {
@@ -75,7 +75,7 @@ namespace Web_Assignment
 
                     var gameID = theEvent.discipline;
 
-                    ApplicationDbContext db = new ApplicationDbContext();
+                    ApplicationDbContext db = new ApplicationDbContext();  //gets the full name of the event to be displayed instead of the sport ID
                     var getName = (string)(from s in db.Sports
                                            where s.APISportID == gameID
                                            select s.sportName).FirstOrDefault();

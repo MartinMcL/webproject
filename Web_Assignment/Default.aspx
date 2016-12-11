@@ -1,17 +1,16 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Web_Assignment._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <!-- gets the event name, uses query string to pass name to article page -->
     <script>
         $(document).ready(function () {
-            $('h6, td').click(function (e) {
+            $('h6, td').click(function (e) {   //event for the table cells and carousel so they can be clicked
                 var articleName = (e.target.innerHTML);
                 if (articleName != "No Information") {
                     var params = { 'name': articleName };
-                    window.location.href = "ArticlePage?" + jQuery.param(params);
+                    window.location.href = "ArticlePage?" + jQuery.param(params);   //gets the event name, uses query string to pass name to article page
                 }
             });
-            $('h6, td').hover(function () {
+            $('h6, td').hover(function () {   //changes the cursor to look better when hovering over the table and carousel
                 $(this).css('cursor', 'pointer');
             });
         });
@@ -74,23 +73,6 @@
             </a>
         </div>
 
-        <%--<div class="col-md-3 table-responsive">    
-  <h2>Trending</h2> 
-    <asp:Table runat="server" ID="tblTrend" CssClass="table table-hover">
-        <asp:TableRow>
-            <asp:TableCell ID="trend1">No Information</asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell ID="trend2">No Information</asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell ID="trend3">No Information</asp:TableCell>
-        </asp:TableRow> 
-        <asp:TableRow>
-            <asp:TableCell ID="trend4">No Information</asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
-</div>--%>
     </div>
 
     <div class="container row mainContent">
