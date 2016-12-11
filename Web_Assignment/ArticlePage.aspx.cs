@@ -27,61 +27,68 @@ namespace Web_Assignment
                 "/ArticlePage.aspx";
                 Response.Redirect(url);
             }
-        
-            if (Request.QueryString["name"] != null )
+            if (Request.QueryString["name"] != null)
             {
-                eventName  = Request.QueryString["name"];
+                eventName = Request.QueryString["name"];
                 Page.Title = eventName;
             }
 
             eventTitle.InnerText = eventName.ToString();
             //API calls for ther article information from the tournament name in the query string
-            string eventID;
             var requestForID =
-            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?name=" + eventName );
+            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?name=" + eventName);
             requestForID.Method = "GET";
             requestForID.UserAgent = "WebRequestDemo";
             requestForID.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
+            string eventID = "";
             using (var theResponse = requestForID.GetResponse())
             {
                 var dataStream = theResponse.GetResponseStream();
                 StreamReader reader = new StreamReader(dataStream);
                 object objResponse = reader.ReadToEnd();
                 var getID = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
-                eventID = getID[0].id;
-                
+                if (getID.Count > 0)
+                {
+                    eventID = getID[0].id;
+                }
+                else
+                {
+                    eventID = "";
+                }
                 dataStream.Close();
                 theResponse.Close();
             }
-
-            var requestInfo =
-            WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments/" + eventID);
-            requestInfo.Method = "GET";
-            requestInfo.UserAgent = "WebRequestDemo";
-            requestInfo.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
-            using (var Response = requestInfo.GetResponse())
+            if (eventID != "")
             {
-                var ds = Response.GetResponseStream();
-                StreamReader reader = new StreamReader(ds);
-                object objRes = reader.ReadToEnd();
-                var theEvent = JsonConvert.DeserializeObject<Event>(objRes.ToString());
 
-                var gameID = theEvent.discipline;             
+                var requestInfo =
+                WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments/" + eventID);
+                requestInfo.Method = "GET";
+                requestInfo.UserAgent = "WebRequestDemo";
+                requestInfo.Headers.Add("X-Api-Key", "Oo8MTVO7WkJ0NOwJdLNznE5FuJ-II1E5kPVxMM_R2qg");
+                using (var Response = requestInfo.GetResponse())
+                {
+                    var ds = Response.GetResponseStream();
+                    StreamReader reader = new StreamReader(ds);
+                    object objRes = reader.ReadToEnd();
+                    var theEvent = JsonConvert.DeserializeObject<Event>(objRes.ToString());
 
-                ApplicationDbContext db = new ApplicationDbContext();
-                var getName = (string)(from s in db.Sports
-                                 where s.APISportID == gameID
-                                 select s.sportName).FirstOrDefault();
+                    var gameID = theEvent.discipline;
 
-                eventDes.InnerText = theEvent.description == null || theEvent.description.Length < 2 ? "No description for this event!" : theEvent.description;
-                fullName.InnerText = theEvent.full_name;
-                gameName.Text = getName;
-                startDate.Text = theEvent.date_start + "  until  " + theEvent.date_end;
-                location.Text = (theEvent.country + ", " + theEvent.location).ToString().Length < 4 || theEvent.location == null || theEvent.country == null ? "Unknown" : (theEvent.country + ", " + theEvent.location);
-                prize.Text = theEvent.prize == null || theEvent.prize.ToString().Length < 2 ? "Unknown" : theEvent.prize;
+                    ApplicationDbContext db = new ApplicationDbContext();
+                    var getName = (string)(from s in db.Sports
+                                           where s.APISportID == gameID
+                                           select s.sportName).FirstOrDefault();
 
-                ds.Close();
-                Response.Close();
+                    eventDes.InnerText = theEvent.description == null || theEvent.description.Length < 2 ? "No description for this event!" : theEvent.description;
+                    fullName.InnerText = theEvent.full_name;
+                    gameName.Text = getName;
+                    startDate.Text = theEvent.date_start + "  until  " + theEvent.date_end;
+                    location.Text = (theEvent.country + ", " + theEvent.location).ToString().Length < 4 || theEvent.location == null || theEvent.country == null ? "Unknown" : (theEvent.country + ", " + theEvent.location);
+                    prize.Text = theEvent.prize == null || theEvent.prize.ToString().Length < 2 ? "Unknown" : theEvent.prize;
+                    ds.Close();
+                    Response.Close();
+                }
             }
         }
 

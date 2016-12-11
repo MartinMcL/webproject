@@ -26,7 +26,7 @@ namespace Web_Assignment
             }
             if (!User.Identity.IsAuthenticated) //if the user is not logged in, redirect to the Login Page
             {
-                Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "/Login.aspx");
+                Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "Account/Login.aspx");
             }
             //Run the functions to popluate the tables
             yourUpComing();
@@ -128,14 +128,14 @@ namespace Web_Assignment
                     StreamReader reader = new StreamReader(dataStream);
                     object objResponse = reader.ReadToEnd();
                     List<Result> myResults = JsonConvert.DeserializeObject<List<Result>>(objResponse.ToString());
-                    if (myResults.Count > 0)
+                    if (myResults.Count > 0 && myResults[0].opponents[1].participant != null && myResults[0].opponents[0].participant != null)
                     {
                         tbl1Tourn1.Text = myResults[0].tournament.name;
                         tbl1Team1.Text = myResults[0].opponents[0].participant.name;
                         tbl1Team1Score.Text = myResults[0].opponents[0].score.ToString();
                         tbl1Team2.Text = myResults[0].opponents[1].participant.name;
                         tbl1Team2Score.Text = myResults[0].opponents[1].score.ToString();
-                        if (myResults.Count > 1)
+                        if (myResults.Count > 1 && myResults[1].opponents[1].participant != null && myResults[1].opponents[0].participant != null)
                         {
                             tblLatestResults.Visible = true;
                             noResultsError.Visible = false;
@@ -144,7 +144,7 @@ namespace Web_Assignment
                             tbl2Team1Score.Text = myResults[1].opponents[0].score.ToString();
                             tbl2Team2.Text = myResults[1].opponents[1].participant.name;
                             tbl2Team2Score.Text = myResults[1].opponents[1].score.ToString();
-                            if (myResults.Count > 2)
+                            if (myResults.Count > 2 && myResults[2].opponents[1].participant != null && myResults[2].opponents[0].participant != null)
                             {
                                 tblLatestResults.Visible = true;
                                 noResultsError.Visible = false;
@@ -153,15 +153,15 @@ namespace Web_Assignment
                                 tbl3Team1Score.Text = myResults[2].opponents[0].score.ToString();
                                 tbl3Team2.Text = myResults[2].opponents[1].participant.name;
                                 tbl3Team2Score.Text = myResults[2].opponents[1].score.ToString();
-                                if (myResults.Count > 3)
+                                if (myResults.Count > 3 && myResults[3].opponents[1].participant != null && myResults[3].opponents[0].participant != null)
                                 {
                                     tblLatestResults.Visible = true;
                                     noResultsError.Visible = false;
                                     tbl4Tourn4.Text = myResults[3].tournament.name;
                                     tbl4Team1.Text = myResults[3].opponents[0].participant.name;
-                                    tbl4Team1Score.Text = myResults[3].opponents[0].score.ToString();
+                                    tbl4Team1Score.Text = myResults[3].opponents[0].score;
                                     tbl4Team2.Text = myResults[3].opponents[1].participant.name;
-                                    tbl4Team2Score.Text = myResults[3].opponents[1].score.ToString();
+                                    tbl4Team2Score.Text = myResults[3].opponents[1].score;
                                 }
                                 else
                                 {
@@ -278,9 +278,6 @@ namespace Web_Assignment
                 }
             }
         }
-
-
-
 
         public void yourNearby() //Return events from the country the logged in user's IP is from
         {

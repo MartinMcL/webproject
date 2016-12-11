@@ -3,11 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script>
         $(document).ready(function () {
-            $('td').click(function (e) {
-                var articleName = (e.target.innerHTML);
-
-                var params = { 'name': articleName };
-                window.location.href = "ArticlePage?" + jQuery.param(params);
+            $('td').click(function (e) { //When a table cell is clicked 
+                var articleName = (e.target.innerHTML); //Take the name of the event
+                if (articleName != "No Information" && articleName != "No upcoming events") { //if it's a valid name with info
+                    var params = { 'name': articleName };
+                    window.location.href = "ArticlePage?" + jQuery.param(params); //Redirect to article page with the information
+                }
             });
             $('td').hover(function () {
                 $(this).css('cursor', 'pointer');

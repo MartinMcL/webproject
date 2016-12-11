@@ -14,7 +14,7 @@ namespace Web_Assignment.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Request.IsSecureConnection)
+            if (!Request.IsSecureConnection) //Redirect to https if not already 
             {
                 string url =
                 ConfigurationManager.AppSettings["SecurePath"] +
@@ -27,7 +27,7 @@ namespace Web_Assignment.Account
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             //Adding 1 if there is a sport selected
-            int favSport = Convert.ToInt16(ddlSportName.SelectedValue);
+            int favSport = Convert.ToInt16(ddlSportName.SelectedValue); //Add sport to the User entry in the database
 
             User newUser = new User() { email=Email.Text, SportID = favSport };
             

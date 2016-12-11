@@ -6,15 +6,16 @@
         $(document).ready(function () {
             $('h6, td').click(function (e) {
                 var articleName = (e.target.innerHTML);
-
-                var params = { 'name': articleName };
-                window.location.href = "ArticlePage?" + jQuery.param(params);
+                if (articleName != "No Information") {
+                    var params = { 'name': articleName };
+                    window.location.href = "ArticlePage?" + jQuery.param(params);
+                }
             });
             $('h6, td').hover(function () {
                 $(this).css('cursor', 'pointer');
             });
         });
-        
+
     </script>
 
 
