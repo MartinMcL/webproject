@@ -5,6 +5,8 @@ using System.Web;
 
 namespace Web_Assignment
 {
+    //Created by Martin and changed by Dylan
+
     public class Event
     {
         public string id { get; set; }
