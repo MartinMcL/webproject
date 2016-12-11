@@ -16,17 +16,18 @@ namespace Web_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Request.IsSecureConnection)
+            if (!Request.IsSecureConnection) //Redirect to https if not already
             {
                 string url =
                 ConfigurationManager.AppSettings["SecurePath"];
                 Response.Redirect(url);
             }
+            // run functions to fill the information
             GetTrending();
             GetUpcoming();
             GetLatest();
         }
-        public void GetUpcoming()
+        public void GetUpcoming() //Get upcoming events
         {
             var myRequest =
             WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + (DateTime.Now.Month.ToString().Length == 1 ? "0"+DateTime.Now.Month.ToString(): DateTime.Now.Month.ToString()) + "-" + (DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()));
@@ -47,7 +48,7 @@ namespace Web_Assignment
                 theResponse.Close();
             }
         }
-        public void GetLatest()
+        public void GetLatest() //Get laterst completed matches
         {
             var myRequest =
             WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?status=completed&before_end=" + DateTime.Now.Year + "-" + (DateTime.Now.Month.ToString().Length == 1 ? "0" + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + "-" + (DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()));
@@ -70,7 +71,7 @@ namespace Web_Assignment
 
         }
 
-        public void GetTrending()
+        public void GetTrending() //Get a list of featured events for the carousel
         {
             var myRequest =
             WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?featured=1");
@@ -83,10 +84,7 @@ namespace Web_Assignment
                 StreamReader reader = new StreamReader(dataStream);
                 object objResponse = reader.ReadToEnd();
                 var trendEvent = JsonConvert.DeserializeObject<List<Event>>(objResponse.ToString());
-                //trend1.Text = trendEvent[0].name;
-                //trend2.Text = trendEvent[1].name;
-                //trend3.Text = trendEvent[2].name;
-                //trend4.Text = trendEvent[3].name;
+               
 
                 //1st slide
                 var getName1 = trendEvent[0].discipline;

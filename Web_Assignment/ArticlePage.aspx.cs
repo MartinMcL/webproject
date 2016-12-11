@@ -18,7 +18,7 @@ namespace Web_Assignment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            //redirect the user to https if not already
 
             if (!Request.IsSecureConnection)
             {
@@ -35,7 +35,7 @@ namespace Web_Assignment
             }
 
             eventTitle.InnerText = eventName.ToString();
-
+            //API calls for ther article information from the tournament name in the query string
             string eventID;
             var requestForID =
             WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?name=" + eventName );

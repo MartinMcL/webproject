@@ -17,17 +17,18 @@ namespace Web_Assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Request.IsSecureConnection)
+            if (!Request.IsSecureConnection) //Redirect to a secure path if it is not already
             {
                 string url =
                 ConfigurationManager.AppSettings["SecurePath"] +
                 "/UserAccountPage.aspx";
                 Response.Redirect(url);
             }
-            if (!User.Identity.IsAuthenticated)
+            if (!User.Identity.IsAuthenticated) //if the user is not logged in, redirect to the Login Page
             {
-                Response.Redirect(ConfigurationManager.AppSettings["SecurePath"]);
+                Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "/Login.aspx");
             }
+            //Run the functions to popluate the tables
             yourUpComing();
             yourNearby();
             randomEvent();
@@ -35,7 +36,7 @@ namespace Web_Assignment
             getUpcomingMatches();
         }
 
-        public string SportName(Sport fs)
+        public string SportName(Sport fs) //Returns the full anme of the sport for displaying
         {
             if (fs != null)
             {
@@ -47,7 +48,7 @@ namespace Web_Assignment
             }
         }
 
-        public Sport yourFavSport()
+        public Sport yourFavSport() //Retrieve the information for the logged in users favourite sport.
         {
             ApplicationDbContext db = new ApplicationDbContext();
 
@@ -61,7 +62,7 @@ namespace Web_Assignment
             return favSport;
         }
 
-        public Location getLocation()
+        public Location getLocation() //Make a call to the IP PAI and return the country information
         {
             var myRequest =
             WebRequest.CreateHttp("http://ip-api.com/json/?fields=country,countryCode");
@@ -80,11 +81,11 @@ namespace Web_Assignment
             return myLocation;
         }
 
-        public string countryName(Location loc) { return loc.country; }
+        public string countryName(Location loc) { return loc.country; } // Return the proper name for the country
 
 
 
-        public void yourUpComing()
+        public void yourUpComing() //Populate upcoming events for the sport
         {
             Sport favSport = yourFavSport();
             if (favSport != null)
@@ -112,7 +113,7 @@ namespace Web_Assignment
 
         }
 
-        public void latestResults()
+        public void latestResults() //Returns latest results for the favourite sport
         {
             Sport favSport = yourFavSport();
             if (favSport != null)
@@ -197,7 +198,7 @@ namespace Web_Assignment
                 }
             }
         }
-        public void getUpcomingMatches()
+        public void getUpcomingMatches() // Returns upcoming matches for the favourite sport
         {
             Sport favSport = yourFavSport();
             if (favSport != null)
@@ -281,7 +282,7 @@ namespace Web_Assignment
 
 
 
-        public void yourNearby()
+        public void yourNearby() //Return events from the country the logged in user's IP is from
         {
             Location myLocation = getLocation();
             var myRequest =
@@ -305,9 +306,8 @@ namespace Web_Assignment
 
         }
 
-        public void randomEvent()
+        public void randomEvent() // Return a random featured event
         {
-            Location myLocation = getLocation();
             var myRequest =
             WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?after_start=" + DateTime.Now.Year + "-" + (DateTime.Now.Month.ToString().Length == 1 ? "0" + DateTime.Now.Month.ToString() : DateTime.Now.Month.ToString()) + "-" + (DateTime.Now.Day.ToString().Length == 1 ? "0" + DateTime.Now.Day.ToString() : DateTime.Now.Day.ToString()) + "&featured=1");
             myRequest.Method = "GET";
@@ -329,7 +329,7 @@ namespace Web_Assignment
             }
 
         }
-
+        //Classes for API call results.
         public class Location
         {
             public string status { get; set; }

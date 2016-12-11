@@ -13,7 +13,7 @@ namespace Web_Assignment
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!Request.IsSecureConnection)
+            if (!Request.IsSecureConnection) //redirect to https if not already
             {
                 string url =
                 ConfigurationManager.AppSettings["SecurePath"] +
