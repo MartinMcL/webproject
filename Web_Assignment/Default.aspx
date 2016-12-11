@@ -17,7 +17,7 @@
 
     </script>
 
-
+    <!-- Bootstrap was done by both project members -->
     <div class="container row mainContent">
         <div id="myCarousel" class="carousel slide col-md-offset-1 col-md-10 col-xs-10 col-xs-offset-1 mainContent" data-ride="carousel">
             <!-- Indicators -->

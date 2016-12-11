@@ -14,7 +14,7 @@ namespace Web_Assignment
 {
     public partial class _Default : Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e) //oad security checks done by Martin McLaughlin (S00151834)
         {
             if (!Request.IsSecureConnection) //Redirect to https if not already
             {
@@ -22,8 +22,8 @@ namespace Web_Assignment
                 ConfigurationManager.AppSettings["SecurePath"];
                 Response.Redirect(url);
             }
-            // run functions to fill the information
-            GetTrending();
+            GetTrending(); //Function to show the captions for the carousel, Done by Dylan Murray
+            // run functions to fill the information, done by Martin McLaughlin (S00151834)
             GetUpcoming();
             GetLatest();
         }
@@ -71,7 +71,7 @@ namespace Web_Assignment
 
         }
 
-        public void GetTrending() //Get a list of featured events for the carousel
+        public void GetTrending() //Get a list of featured events for the carousel, done by Dylan Murray
         {
             var myRequest =
             WebRequest.CreateHttp("https://api.toornament.com/v1/tournaments?featured=1");

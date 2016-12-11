@@ -15,6 +15,7 @@
             });
         });
     </script>
+    <!-- Bootstrap was done by both project members -->
     <div class="container">
         <div class="row">
             <div class="col-md-2 col-md-offset-1 col-xs-3 col-xs-offset-0 mainContent" id="profilePic">

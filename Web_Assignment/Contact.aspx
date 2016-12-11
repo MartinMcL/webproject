@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Web_Assignment.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<!-- Changed by Martin McLaughlin (S00151834) -->
     <div class="mainContent col-md-8 col-md-offset-2">
     <h2 class="text-primary"><%: Title %></h2>
     <h3>Contact us!</h3>

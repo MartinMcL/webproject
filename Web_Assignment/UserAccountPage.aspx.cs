@@ -15,7 +15,7 @@ namespace Web_Assignment
 {
     public partial class UserAccountPage : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e) //Page load security was done by Martin McLaughlin (S00151834)
         {
             if (!Request.IsSecureConnection) //Redirect to a secure path if it is not already
             {
@@ -28,8 +28,8 @@ namespace Web_Assignment
             {
                 Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "Account/Login.aspx");
             }
-            //Run the functions to popluate the tables
-            yourUpComing();
+            //Run the functions to popluate the tables done by Martin McLaughlin (S00151834)  
+            yourUpComing(); 
             yourNearby();
             randomEvent();
             latestResults();
@@ -326,7 +326,7 @@ namespace Web_Assignment
             }
 
         }
-        //Classes for API call results.
+        //Classes for API call results, done by Martin McLaughlin (S00151834) with help from http://json2csharp.com/
         public class Location
         {
             public string status { get; set; }
