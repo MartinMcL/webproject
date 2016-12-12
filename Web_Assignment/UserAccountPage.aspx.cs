@@ -78,7 +78,7 @@ namespace Web_Assignment
                 dataStream.Close();
                 theResponse.Close();
             }
-            return myLocation;
+            return myLocation; //Returning a location Object
         }
 
         public string countryName(Location loc) { return loc.country; } // Return the proper name for the country
