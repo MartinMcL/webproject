@@ -213,13 +213,13 @@ namespace Web_Assignment
                     StreamReader reader = new StreamReader(dataStream);
                     object objResponse = reader.ReadToEnd();
                     List<Result> myResults = JsonConvert.DeserializeObject<List<Result>>(objResponse.ToString());
-                    if (myResults.Count > 0)
+                    if (myResults.Count > 0 && myResults[0].opponents[1].participant != null && myResults[0].opponents[0].participant != null)
                     {
                         tb1Tourn1.Text = myResults[0].tournament.name;
                         tb1Team1.Text = myResults[0].opponents[0].participant.name;
                         tb1Team2.Text = myResults[0].opponents[1].participant.name;
                         tb1Date.Text = myResults[0].date.ToString();
-                        if (myResults.Count > 1)
+                        if (myResults.Count > 1 && myResults[1].opponents[1].participant != null && myResults[1].opponents[0].participant != null)
                         {
                             upcomingMatches.Visible = true;
                             noUpcoming.Visible = false;
@@ -227,7 +227,7 @@ namespace Web_Assignment
                             tb2Team1.Text = myResults[1].opponents[0].participant.name;
                             tb2Team2.Text = myResults[1].opponents[1].participant.name;
                             tb2Date.Text = myResults[1].date.ToString();
-                            if (myResults.Count > 2)
+                            if (myResults.Count > 2 && myResults[2].opponents[1].participant != null && myResults[2].opponents[0].participant != null)
                             {
                                 upcomingMatches.Visible = true;
                                 noUpcoming.Visible = false;
@@ -235,7 +235,7 @@ namespace Web_Assignment
                                 tb3Team1.Text = myResults[2].opponents[0].participant.name;
                                 tb3Team2.Text = myResults[2].opponents[1].participant.name;
                                 tb3Date.Text = myResults[2].date.ToString();
-                                if (myResults.Count > 3)
+                                if (myResults.Count > 3 && myResults[3].opponents[1].participant != null && myResults[3].opponents[0].participant != null)
                                 {
                                     upcomingMatches.Visible = true;
                                     noUpcoming.Visible = false;
